@@ -1,3 +1,12 @@
+// @import "foundation/settings";
+// $include-html-grid-classes: false;
+// $include-html-classes: false;
+// $include-print-styles: false;
+
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+
+@media (max-width: 767px) {
   .large-screen-header {
     display:none
   }
@@ -78,5 +87,6 @@
     text-decoration: none;
 
    }
+}
 
 

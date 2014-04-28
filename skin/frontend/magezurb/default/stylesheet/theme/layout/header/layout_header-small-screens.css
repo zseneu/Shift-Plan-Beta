@@ -1,21 +1,21 @@
 /*
 Syntax error: Undefined variable: "$loud-color".
-        on line 25 of scss/theme/layout/header/layout_header-small-screens.scss
+        on line 34 of scss/theme/layout/header/layout_header-small-screens.scss
 
-20:     li a {
-21:       display: block;
-22:       padding:12px 20px;
-23:     }
-24:     li a:hover{
-25:       background:$loud-color;
-26:       color:$base-color;
-27:     }
-28:   }
-29:   .cart-links {
-30:     padding-bottom:15px;
+29:     li a {
+30:       display: block;
+31:       padding:12px 20px;
+32:     }
+33:     li a:hover{
+34:       background:$loud-color;
+35:       color:$base-color;
+36:     }
+37:   }
+38:   .cart-links {
+39:     padding-bottom:15px;
 
 Backtrace:
-scss/theme/layout/header/layout_header-small-screens.scss:25
+scss/theme/layout/header/layout_header-small-screens.scss:34
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/variable.rb:49:in `_perform'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/node.rb:50:in `perform'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:366:in `visit_prop'
@@ -54,6 +54,20 @@ c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/vi
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:479:in `visit_media'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `block in with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:121:in `with_frame'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:52:in `map'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:151:in `visit'
@@ -65,17 +79,15 @@ c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:186:in `each'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:221:in `watch'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin.rb:108:in `method_missing'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/exec.rb:509:in `watch_or_update'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/exec.rb:346:in `process_result'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/exec.rb:43:in `parse'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/exec.rb:22:in `parse!'
-c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/bin/sass:13:in `<top (required)>'
-c:/RailsInstaller/Ruby1.9.3/bin/sass:23:in `load'
-c:/RailsInstaller/Ruby1.9.3/bin/sass:23:in `<main>'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:248:in `block in watch'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:143:in `call'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:143:in `block in _wait_for_changes'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:138:in `loop'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:138:in `_wait_for_changes'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:42:in `block in start'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$loud-color\".\A         on line 25 of scss/theme/layout/header/layout_header-small-screens.scss\A \A 20:     li a {\A 21:       display: block;\A 22:       padding:12px 20px;\A 23:     }\A 24:     li a:hover{\A 25:       background:$loud-color;\A 26:       color:$base-color;\A 27:     }\A 28:   }\A 29:   .cart-links {\A 30:     padding-bottom:15px;"; }
+  content: "Syntax error: Undefined variable: \"$loud-color\".\A         on line 34 of scss/theme/layout/header/layout_header-small-screens.scss\A \A 29:     li a {\A 30:       display: block;\A 31:       padding:12px 20px;\A 32:     }\A 33:     li a:hover{\A 34:       background:$loud-color;\A 35:       color:$base-color;\A 36:     }\A 37:   }\A 38:   .cart-links {\A 39:     padding-bottom:15px;"; }

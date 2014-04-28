@@ -60,7 +60,7 @@
 
 				<action method="addItem">
 					<type>skin_js</type>
-					<name>js/magezurb/side-stick-top.js</name>
+					<name>js/magezurb/aside-stick-top.js</name>
 				</action>
 
 				<action method="addItem">

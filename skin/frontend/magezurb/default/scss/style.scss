@@ -10,8 +10,13 @@
 
 } 
 
-// I no interest in writing lots of code for things other people wher
-// charging money for.
+@import "foundation/settings";
+$include-html-grid-classes: false;
+$include-html-classes: false;
+$include-print-styles: false;
+
+@import "foundation/components/global"; // *always required
+@import "foundation/components/grid";
 
 @import "font-awesome/variables";
 @import "font-awesome/mixins";
@@ -26,49 +31,50 @@
 @import "font-awesome/stacked";
 @import "font-awesome/icons";
 
+/* helpers */
+@import "theme/helpers/mixins";
+@import "theme/helpers/variables";
+@import "theme/settings";
 
-
-@import  
-  "theme/helpers/mixins",
-  "theme/helpers/variables",
-  "theme/settings",
-  "theme/layout/l_2col-left",
-  "theme/layout/l_home-page",
-
-  "theme/layout/l_footer",
-  "theme/modules/newsletter/subscribe";
-  
+/* layout */
+@import "theme/layout/l_2col-left";
+@import "theme/layout/l_home-page";
+@import "theme/layout/l_footer";
+// header  
 @import "theme/layout/header/layout_header"; 
-@media (min-width: 767px) {
-  @import "theme/layout/header/layout_header-big-screens"; 
-}
-@media (max-width: 767px) {
-  @import "theme/layout/header/layout_header-small-screens"; 
-} 
+@import "theme/layout/header/layout_header-big-screens"; 
+@import "theme/layout/header/layout_header-small-screens";  
+// category
+@import "theme/layout/category/layout-category";
+// product
+@import "theme/layout/product/layout-product";
+// cms
+@import "theme/layout/cms/layout_cms-general";
+// cart
+@import "theme/layout/cart/layout_cart";
+// account
+@import "theme/layout/account/layout_account";
+
+/* modules */
+// header
 @import "theme/modules/header/catalog-search"; 
 
-@import
-  "theme/layout/category/layout-category",
-  "theme/modules/category/description",
-  "theme/modules/category/filter",
-  "theme/modules/category/product",
-  
-  "theme/layout/product/layout-product",
-  "theme/modules/product/price",
-  "theme/modules/product/sizeguide",
-  "theme/modules/product/instock",
-  "theme/modules/product/social",
-  "theme/modules/product/options",
-  "theme/modules/product/button",
-  "theme/modules/product/main-image",
-  "theme/modules/product/details",
+@import "theme/modules/newsletter/subscribe";
 
-  "theme/layout/cms/layout_cms-general",
+@import "theme/modules/category/description";
+@import "theme/modules/category/filter";
+@import "theme/modules/category/product";
   
-  "theme/layout/cart/layout_cart",
-  "theme/layout/account/layout_account";
+@import "theme/modules/product/price";
+@import "theme/modules/product/sizeguide";
+@import "theme/modules/product/instock";
+@import "theme/modules/product/social";
+@import "theme/modules/product/options";
+@import "theme/modules/product/button";
+@import "theme/modules/product/main-image";
+@import "theme/modules/product/details";
 
-  @import "mw_checkout/main";
+@import "mw_checkout/main";
 
 
 
