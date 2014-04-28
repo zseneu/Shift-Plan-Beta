@@ -2395,8 +2395,10 @@ input[type="text"].subscribe-input {
     font-weight: 700px; }
 
 /* template\catalog/product/price.phtml */
+.catalog-product-price .old-price {
+  width: 49%; }
+
 .old-price {
-  width: 49%;
   float: left;
   text-align: right;
   padding-right: 1%;
@@ -2408,14 +2410,15 @@ input[type="text"].subscribe-input {
   text-align: left;
   padding-left: 1%; }
 
-.pro h5 .price {
+h5.price {
   color: #282828;
   font-size: 32px;
-  display: block;
-  width: 100%;
-  border-bottom: 4px solid #e78f1a;
+  display: block; }
+
+.product-view .price-box {
   padding-bottom: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  width: 100%; }
 
 .sizechart {
   float: left;
@@ -2438,6 +2441,21 @@ input[type="text"].subscribe-input {
 .size-chart-button:hover {
   color: #9C1633;
   background: url(images/size_guide.png) no-repeat left bottom; }
+
+.reveal-modal .close-reveal-modal {
+  font-size: 1rem;
+  padding: 10px 20px;
+  line-height: 1;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6875rem;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  background: #ccc; }
+
+.reveal-modal .close-reveal-modal:hover {
+  background: #636363; }
 
 .make-this-hidden {
   display: none; }
@@ -2556,6 +2574,9 @@ span.onRadio {
   color: #636363;
   font-weight: normal; }
 
+.product-options ul.options-list li span.easy {
+  color: #cccccc; }
+
 /* uses third party template
 
 template\ajaxcart/catalog/product/view/addtocart.phtml */
@@ -2590,7 +2611,6 @@ template\ajaxcart/catalog/product/view/addtocart.phtml */
 .product-name-h1 {
   margin: 0;
   font-size: 17px;
-  width: 365px;
   color: #636363;
   font-weight: 700;
   /*font-family: "Museo-Slab";*/ }

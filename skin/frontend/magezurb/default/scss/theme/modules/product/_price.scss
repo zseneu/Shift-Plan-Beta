@@ -1,24 +1,33 @@
 /* template\catalog/product/price.phtml */
+.large-screen-product-info{
+}
 
-	.old-price{
+	.catalog-product-price .old-price {
 		width: 49%;
+	}
+	.old-price{
 		float: left;
 		text-align: right;
 		padding-right: 1%;
 		text-decoration: line-through;
 	}
-	.special-price{
+	.special-price {
 		width: 49%;
 		float: left;
 		text-align: left;
 		padding-left: 1%;
 	}
 
-	.pro h5 .price{
-	color:#282828;
-	font-size: 32px;
-	display:block;
-	width:100%;
-	border-bottom:4px solid #e78f1a;
-	padding-bottom:20px; margin-bottom:20px;
-}
+	h5.price {
+		color:#282828;
+		font-size: 32px;
+		display:block;
+	}
+	.product-view .price-box{
+		padding-bottom:20px; margin-bottom:20px;
+		width:100%;
+		// border-bottom:4px solid #e78f1a;
+		
+	}
+
+	

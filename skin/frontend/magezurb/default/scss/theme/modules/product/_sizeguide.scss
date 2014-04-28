@@ -26,6 +26,22 @@
 	background: url(images/size_guide.png) no-repeat left bottom;
 }
 
+.reveal-modal .close-reveal-modal {
+font-size: 1rem;
+padding: 10px 20px;
+line-height: 1;
+position: absolute;
+top: 0.5rem;
+right: 0.6875rem;
+color: #fff;
+font-weight: bold;
+cursor: pointer;
+background: #ccc;
+}
+.reveal-modal .close-reveal-modal:hover{
+	background:#636363;
+}
+
 
 
 
