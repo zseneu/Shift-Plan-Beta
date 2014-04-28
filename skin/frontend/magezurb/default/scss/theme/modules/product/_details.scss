@@ -1,0 +1,27 @@
+/* title template\boilerplate/catalog/product/product-name.phtml */
+.product-name-h1 {
+	margin: 0;
+	font-size: 17px;
+	width: 365px;
+	color: #636363;
+	font-weight: 700;
+	/*font-family: "Museo-Slab";*/
+}
+
+.product-detail-column .regular-price span,
+.product-image-column .regular-price span {
+	color: #282828;
+font-size: 34px;
+}
+
+.std ul {padding-left: 16px;}
+.std li {color:#636363;}
+
+.descriptionz {
+	width:100%;
+	border-top: 5px solid $loud-color;
+	margin-top:10px; padding:20px 00;
+	float:left;
+}
+
+

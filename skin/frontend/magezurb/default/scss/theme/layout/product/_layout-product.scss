@@ -1,0 +1,56 @@
+@import "../../../foundation/settings";
+$include-html-grid-classes: false;
+$include-html-classes: false;
+$include-print-styles: false;
+
+@import "../../../foundation/components/global"; // *always required
+@import "../../../foundation/components/inline-lists";
+
+/* template\catalog/product/view.phtml */
+.product-view{
+	@include grid-row();
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.product-detail-column{
+	@media (min-width: 767px) { // big screens
+        @include grid-column(5); 
+    }
+    @media (max-width: 767px) { // small screens
+        @include grid-column(12); 
+        margin-top:45px;
+        .product-name-h1,
+        .price-box {
+            display:none
+        }
+    } 
+	
+}
+.product-image-column{
+	@media (min-width: 767px) { // big screens
+        @include grid-column(7); 
+        .product-name-h1,
+        .price-box {
+            display:none
+        }
+    }
+    @media (max-width: 767px) { // small screens
+        @include grid-column(12); 
+        padding: 10px 15px;
+        overflow: hidden;
+    } 
+}
+
+.small-screen-product-info{
+    @media (min-width: 767px) { // big screens
+        display:none
+        
+    }
+}
+.large-screen-product-info{
+    @media (max-width: 767px) { // big screens
+        display:none
+        
+    }
+}

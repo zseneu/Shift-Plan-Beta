@@ -1,0 +1,56 @@
+<?php
+                       /**
+                         * Returns the identifier for the currently rendered CMS page. 
+                         * If current page is not from CMS, null is returned.
+                         * @return String | Null
+                         */
+function getCurrentCmsPage() {  
+                            $pageId = Mage::getBlockSingleton('cms/page')->getPage()->getIdentifier();  
+                            return $pageId;  
+                        } 
+
+                        $menuId = Mage::getBlockSingleton('cms/page')->getPage()->getIdentifier();
+
+                        if (getCurrentCmsPage() != null):?>
+        
+                        
+
+                     
+
+                    <section class=" block block-cart cms-menu">
+                        <a href="#" id="ast-control" class="ast-small-label">SHOW CUSTOMER SERVICE MENU</a>
+                        <h4 class="sidebar-subtitle">CUSTOMER SERVICE</h4>
+                        
+                        
+                        
+                        <ul>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>ordering" alt="Ordering" class="ordering <?php if($menuId == "ordering"):?>menu-current<?php endif; ?>">
+                                Ordering</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>delivery" alt="Delivery" class="delivery <?php if($menuId == "delivery"):?>menu-current<?php endif; ?>">
+                                Delivery</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>returns" alt="Returns" class="returns <?php if($menuId == "returns"):?>menu-current<?php endif; ?>">
+                                Returns</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>sizeguides" alt="Size Guides" class="size-icon <?php if($menuId == "sizeguides"):?>menu-current<?php endif; ?>">
+                                Size Guides</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>termsandconditions" alt="Terms and Conditions" class="termsand <?php if($menuId == "termsandconditions"):?>menu-current<?php endif; ?>">
+                                Terms &amp; Conditions</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>privacypolicy" alt="Privacy Policy" class="privacy <?php if($menuId == "privacypolicy"):?>menu-current<?php endif; ?>">
+                                Privacy Policy</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>cookiespolicy" alt="Cookies Policy" class="cookies <?php if($menuId == "cookiespolicy"):?>menu-current<?php endif; ?>">
+                                Cookies Policy</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>student" alt="Student Offer" class="student <?php if($menuId == "student"):?>menu-current<?php endif; ?>">
+                                Student Offer</a></li>
+                            <li>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>contact" alt="Contact Us" class="student <?php if($menuId == "contact"):?>menu-current<?php endif; ?>">
+                                Contact Us</a></li>
+                        </ul>
+                    </section><!-- end cms-menu -->
+   <?php endif; ?>

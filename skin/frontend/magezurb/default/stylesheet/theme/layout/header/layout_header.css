@@ -1,0 +1,72 @@
+/*
+Syntax error: Undefined variable: "$loud-color".
+        on line 8 of scss/theme/layout/header/layout_header.scss
+
+3:     font-size: inherit; 
+4:   }
+5: }
+6: 
+7: 
+8: .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}
+9: .small-menu-button {position:absolute;top:9px; font-size:0;  display: block; width:53px; height:43px; }
+10: .small-menu-button:hover {background-color:$loud-color; }
+11: .small-menu-button:focus {outline:none;background-color:transparent; }
+12: .small-menu-left-button  {float:left; left:5px; background:url('../images/small-menu-sprite.png') 0 0;  width:48px;  }
+13: .small-menu-right-button {float:right; right:5px;background:url('../images/small-menu-sprite.png') -377px 0;}
+
+Backtrace:
+scss/theme/layout/header/layout_header.scss:8
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/variable.rb:49:in `_perform'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/node.rb:50:in `perform'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/list_literal.rb:62:in `block in _perform'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/list_literal.rb:62:in `map'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/list_literal.rb:62:in `_perform'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/node.rb:50:in `perform'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:366:in `visit_prop'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `block in with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:121:in `with_frame'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:389:in `block (2 levels) in visit_rule'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:389:in `map'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:389:in `block in visit_rule'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:387:in `visit_rule'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `block in with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:121:in `with_frame'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:52:in `map'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:151:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:8:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/root_node.rb:20:in `render'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/engine.rb:274:in `render'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:186:in `each'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:393:in `on_file_changed'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/plugin/compiler.rb:248:in `block in watch'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:143:in `call'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:143:in `block in _wait_for_changes'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:138:in `loop'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:138:in `_wait_for_changes'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/listener.rb:42:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$loud-color\".\A         on line 8 of scss/theme/layout/header/layout_header.scss\A \A 3:     font-size: inherit; \A 4:   }\A 5: }\A 6: \A 7: \A 8: .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}\A 9: .small-menu-button {position:absolute;top:9px; font-size:0;  display: block; width:53px; height:43px; }\A 10: .small-menu-button:hover {background-color:$loud-color; }\A 11: .small-menu-button:focus {outline:none;background-color:transparent; }\A 12: .small-menu-left-button  {float:left; left:5px; background:url('../images/small-menu-sprite.png') 0 0;  width:48px;  }\A 13: .small-menu-right-button {float:right; right:5px;background:url('../images/small-menu-sprite.png') -377px 0;}"; }

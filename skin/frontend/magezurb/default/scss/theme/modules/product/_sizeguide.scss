@@ -1,0 +1,39 @@
+.sizechart {
+	float:left;
+	width: 100%;
+	padding-top: 20px;
+	border-top: 5px solid $loud-color;
+	p, a, li, ul li {
+		color:#636363;
+	}
+}
+
+
+
+.size-chart-button {
+	float: right;
+	font-size: 12px;
+	text-decoration: none;
+	background: url(images/size_guide.png) no-repeat left top;
+	display: block;
+	height: 17px;
+	color: #636363;
+	padding: 0 0 0 57px;
+}
+
+.size-chart-button:hover {
+	color: #9C1633;
+	background: url(images/size_guide.png) no-repeat left bottom;
+}
+
+
+
+
+
+
+.make-this-hidden {
+	display:none;
+}
+
+
+

@@ -1,0 +1,152 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="product-options" id="product-options-wrapper">
+
+
+
+
+    <?php echo $this->getChildHtml('', true, true);?>
+    <?php if ($this->hasRequiredOptions()):?>
+        
+    <?php endif;?>
+</div>
+
+<script type="text/javascript">decorateGeneric($$('#product-options-wrapper dl'), ['last']);</script>
+
+<!--
+ CONVERT CONFIGURABLE DROPDOWN TO RADIO BUTTONS jQuery /app/design/frontend/mybase/default/template/catalog/product/view/options/wrapper.pthml 
+-->
+
+<script type="text/javascript">
+	jQuery(function() {	
+	
+		// set up ul for inputs
+		jQuery("<ul class='options-list'></ul>")
+			.appendTo("#product-options-wrapper");
+		// remove existing dropdown
+		jQuery("#product-options-wrapper dl.last dd").hide();
+			
+		var $superAtt = '#' + jQuery(".super-attribute-select option").parent().attr("id"); //find id of current select menu
+		var $lesserAtt = jQuery(".super-attribute-select option").parent().attr("id");      //set variable for use in input class
+		
+		
+		/*function to parse through select options, grab the values and assign them to 
+		    li inside a span element*/
+		jQuery(".super-attribute-select option").each(function(i,e) {	
+			
+			
+			var $working = $lesserAtt + i; 			  // get id of select element and add integer
+			var $workingstill = "." + $lesserAtt + i; // selector class for input
+			var $optionName = jQuery(this).text();       // text from option
+
+			jQuery("<li><input class='newradio' type='radio' name='r' value='z' /></li>")
+				.attr("value", jQuery(this).val())
+				.attr("checked", i == 0)
+				.addClass($working)
+				.click(function () {
+					jQuery($superAtt).val(jQuery(this).val());
+				})
+				.appendTo("ul.options-list")
+			// create a span element below input and give class 	
+			jQuery('<span class="radiospan"></span>')
+				.appendTo($workingstill)
+				.addClass($working).text($optionName);
+		});	
+		// remove the first list item containing default message from select
+		jQuery("li span.radiospan:contains('Choose an Option..')")
+			.hide()
+			.parent()
+			.hide();	
+		
+		/* get data from PaulDonnelly_OutOfStockLabel plugin http://www.pauldonnellydesigns.com */
+		// set div for stock availibility notification	
+		jQuery("<div id='stock'><p id='instock'>Your size is in stock</p><p id='outstock'>Your size is out of stock</p></div>")
+			.insertAfter(".options-list");
+		jQuery("#outstock")
+			.hide();
+		
+		// begin stock logic
+		jQuery(".radiospan:contains('Out of Stock')")
+			.addClass("easy")
+			.hover(function(){
+				jQuery("#instock").fadeOut();
+				jQuery("#outstock").fadeIn();
+			}, function(){
+				jQuery("#outstock").fadeOut();
+				jQuery("#instock").fadeIn();
+			});
+
+		//remove excess text
+		jQuery(".radiospan:contains('Out of Stock')").each(function(){
+			var span = jQuery(this).text();
+			var done = span.replace("(Out of Stock)", "");
+			
+			jQuery(this).text(done);
+		});
+		
+		// convert radio buttons to images	
+		jQuery('#product-options-wrapper .options-list li')
+			.addClass('hoverOffRadio');
+		jQuery('#product-options-wrapper .options-list input')
+			.addClass('hide');
+		jQuery('#product-options-wrapper .options-list li')
+			.click(function(){
+				var $column = jQuery(this).find("input").attr('id');
+				var $nice = jQuery(this).find("span").hasClass('easy'); //checks to see if in stock
+				if (!$nice){
+					jQuery('#product-options-wrapper .options-list')
+						.find("li span")
+						.removeClass('onRadio');
+					jQuery(this)
+						.find("span")
+						.addClass('onRadio');
+				}
+				jQuery('#product-options-wrapper .options-list')
+					.find("input#"+$column)
+					.attr("checked","checked");	
+			}); 
+		
+		//add hover effect 
+		jQuery('#product-options-wrapper .options-list li')
+			.hover(function(){
+				jQuery(this)
+					.addClass('hoverOnRadio')
+					.removeClass('hoverOffRadio');
+			}, function(){
+				jQuery(this)
+					.addClass('hoverOffRadio')
+					.removeClass('hoverOnRadio');
+			});
+		
+		
+		//var $tired = jQuery(".easy").text();
+		//var $coffee = $tired - "(Out of Stock)";
+		//alert($coffee);
+		
+		
+	});
+	</script>

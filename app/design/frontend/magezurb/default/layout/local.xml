@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	 
+
+	<!-- Default handle, loaded on most pages -->
+	<default>
+
+		<reference name="head">
+
+			<!-- Remove Magento's default assets -->
+			<action method="removeItem">
+				<type>skin_css</type>
+				<name>css/print.css</name>
+			</action>
+			<action method="removeItem">
+				<type>skin_css</type>
+				<name>css/styles-ie.css</name>
+			</action>
+			<action method="removeItem">
+				<type>skin_css</type>
+				<name>css/styles.css</name>
+			</action>
+			<action method="removeItem">
+				<type>skin_css</type>
+				<name>css/widgets.css</name>
+			</action>
+			<action method="removeItem">
+				<type>skin_js</type>
+				<name>js/ie6.js</name>
+			</action>
+			<action method="removeItem">
+				<type>js</type>
+				<name>lib/ds-sleight.js</name>
+			</action>
+			<action method="removeItem">
+				<type>js</type>
+				<name>varien/menu.js</name>
+			</action>
+
+			<action method="addCss">
+				<stylesheet>stylesheet/foundation.css</stylesheet>
+			</action>
+			<action method="addCss">
+				<stylesheet>stylesheet/style.css</stylesheet>
+			</action>
+
+				<action method="addItem">
+					<type>skin_js</type>
+					<name>js/magezurb/libraries/jquery-1.10.2-noconflict.min.js</name>
+				</action>
+				<action method="addItem">
+					<type>skin_js</type>
+					<name>js/magezurb/libraries/modernizr.js</name>
+				</action>
+				<action method="addItem">
+					<type>skin_js</type>
+					<name>js/magezurb/libraries/breakpoints.js</name>
+				</action>
+
+				<action method="addItem">
+					<type>skin_js</type>
+					<name>js/magezurb/side-stick-top.js</name>
+				</action>
+
+				<action method="addItem">
+					<type>skin_js</type>
+					<name>js/magezurb/2tall-responsive.js</name>
+				</action>
+
+
+			
+
+			<!-- Add additioanl child blocks -->
+			<block type="core/template" name="boilerplate.head.meta" template="boilerplate/page/html/head/meta.phtml"/>
+			<block type="core/template" name="boilerplate.head.ie8" template="boilerplate/page/html/head/ie8.phtml"/>
+
+			<action method="addItem"><type>skin_js</type><name>js/foundation/vendor/modernizr.js</name><params/></action>
+            <!-- <action method="addItem"><type>skin_js</type><name>js/foundation/vendor/jquery.js</name><params/></action> -->
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.js</name><params/></action> 
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/vendor/fastclick.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/vendor/jquery.cookie.js</name><params/></action>-->            
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/vendor/placeholder.js</name><params/></action>-->
+
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.abide.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.accordion.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.alert.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.clearing.js</name><params/></action>-->            
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.dropdown.js</name><params/></action>
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.equalizer.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.interchange.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.joyride.js</name><params/></action>-->                       
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.magellan.js</name><params/></action>-->
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.offcanvas.js</name><params/></action>-->
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.orbit.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.reveal.js</name><params/></action>
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.slider.js</name><params/></action>-->
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.tab.js</name><params/></action>
+            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.tooltip.js</name><params/></action>-->
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.topbar.js</name><params/></action>
+
+            <!--<action method="addItem"><type>skin_js</type><name>js/app.js</name><params/></action>-->
+           
+
+
+        </reference>
+
+        <reference name="footer">
+         	<block type="newsletter/subscribe" name="footer.newsletter" template="newsletter/subscribe.phtml"/>
+            <block type="core/template" name="js_files" template="page/html/js.phtml"/>
+        </reference>
+
+		
+        <reference name="customer_account_navigation" >
+                <!-- remove the link using your custom method -->
+                <action method="removeLinkByName">
+                   <name>recurring_profiles</name>
+                </action>
+                <action method="removeLinkByName">
+                   <name>billing_agreements</name>
+                </action>
+        </reference>
+	    <!-- <reference name="header" type="page/html_header"> -->
+        <!-- <block type="page/html_header" name="header" as="header"> -->
+                <!-- <block type="page/template_links" name="top.links" as="topLinks"/> -->
+        <!-- </block> -->
+        <!-- </reference>  -->
+    <!-- BOF added by Atwix --> 
+
+        <reference name="header"> 
+            <block type="page/header" name="header">
+                <!-- <action method="setTemplate"><template>2tall/responsive/header.phtml</template></action>  -->
+                <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+
+                <block type="page/template_links" name="top.links" as="topLinks">
+                            <block type="checkout/links" name="checkout_cart_link">
+                                <action method="addCartLink"></action>
+                                <action method="addCheckoutLink"></action>
+                             </block>
+                </block>
+
+                <block type="core/template" name="2tall.contactLinks" as="contactLinks" template="boilerplate/page/html/template/contact-links.phtml"/>
+
+                <block type="core/template" name="2tall.headerLogo" as="headerLogo" template="boilerplate/page/html/template/header-logo.phtml"/>
+
+                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
+
+                <block type="catalog/navigation" as="mainMenu" name="catalog.topnav" template="catalog/navigation/top.phtml"/>
+            </block>
+        </reference>
+
+        
+
+<!-- EOF added by Atwix --> 
+         <remove name="left.newsletter"/>
+
+         <reference name="left">
+         	<block type="core/template" name="2tall.servicemenu" as="serviceMenu" template="boilerplate/cms/service-menu.phtml"/>
+         </reference>
+
+	</default>
+
+	<print>
+
+		<reference name="head">
+
+			<!-- Add our assets -->
+			<action method="addCss">
+				<stylesheet>css/style.css</stylesheet>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/script-ck.js</name>
+			</action>
+
+
+		</reference>
+
+
+
+	</print>
+
+</layout>

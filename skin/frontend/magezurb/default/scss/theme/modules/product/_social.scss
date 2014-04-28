@@ -1,0 +1,13 @@
+.social-links{
+	width:69px; height:40px; display: block; float:left; margin-right: 12px;
+}
+.social-links a {
+	width:99px; height:40px; display: block; float:left;  font-size: 0;
+	background: url(images/social-sprite.png) no-repeat;
+}
+
+
+.gplus a     {background-position:-5px 0px;}
+.twitter a   {background-position:-104px 0px;}
+.facebook a  {background-position:-312px 0px;}
+.pinterest a {background-position:-416px 0px;}

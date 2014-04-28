@@ -1,0 +1,102 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<head>
+    <?php echo $this->getChildHtml('head') ?>
+</head>
+<body class="page-empty <?php echo $this->getBodyClass()?$this->getBodyClass():'' ?>">
+    <?php // echo $this->getChildHtml('after_body_start') ?>
+    <?php // echo $this->getChildHtml('global_messages') ?>
+     <?php echo $this->getChildHtml('header'); ?>
+<div class="layout">
+     <?php //echo $this->getChildHtml('tallblock') ?>
+     <?php //echo $this->getChildHtml('tallfrontpage') ?>
+     
+	<div class="home-page-wrap">
+	     <section class="hp-callouts">
+	     	<div class="hp-callout large-4 columns">
+	     		<h2>FREE NEXT DAY DELIVERY</h2>
+	     	</div>
+	     	<div class="hp-callout large-4 columns">
+	     		<h2>OUR SIZE AND FIT GUIDE</h2>
+	     	</div>
+	     	<div class="hp-callout large-4 columns">
+	     		<h2>WHAT OUR CUSTOMERS SAY</h2>
+	     	</div>
+	     </section>
+	     <section class="hp-slideshow">
+	     	<div class="hp-slideshow-inner">
+		     	<ul class="example-orbit" data-orbit>
+				  <li>
+					<img src="http://www.2tall.com/skin/frontend/mybase/default/images/slideshow/slide2bg.jpg"/>
+				  </li>
+				  <li>
+					<img src="http://www.2tall.com/skin/frontend/mybase/default/images/slideshow/slide2bg.jpg"/>
+				  </li>
+				  <li>
+					<img src="http://www.2tall.com/skin/frontend/mybase/default/images/slideshow/slide2bg.jpg"/>
+				  </li>
+				</ul>	
+			</div>
+	     </section>
+	     <section class="hp-features">
+	     	<div class="hp-feature-col small-4 columns">
+	     		<img class="hp-feature"  src="<?php echo($this->getSkinUrl('images/homepage/2.jpg')) ?>" alt="Datasheet" />
+	     		<img class="hp-feature" src="<?php echo($this->getSkinUrl('images/homepage/5.jpg')) ?>" alt="Datasheet" />
+	     	</div>
+	     	<div class="hp-feature-col small-4  columns">
+	     		<img class="hp-feature" src="<?php echo($this->getSkinUrl('images/homepage/3.jpg')) ?>" alt="Datasheet" />
+	     	</div>
+	     	<div class="hp-feature-col small-4 columns">
+	     		<img class="hp-feature" src="<?php echo($this->getSkinUrl('images/homepage/4.jpg')) ?>" alt="Datasheet" />
+	     		<img class="hp-feature" src="<?php echo($this->getSkinUrl('images/homepage/5.jpg')) ?>" alt="Datasheet" />
+	     	</div>
+	    </section>
+	    <section class="hp-features">
+	     		<div class="large-12 columns">
+	     			<img class="" src="<?php echo($this->getSkinUrl('images/homepage/7.jpg')) ?>" alt="Datasheet" />
+	    		</div>
+	    </section>
+	    <section class="hp-information">
+	    	<div class="hp-information-inner">
+	    		<article class="">
+	    		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('seo-block')->toHtml() ?>
+	    		</article>
+	    	</div>
+	    </section>
+	</div>
+</div>
+    <?php echo $this->getChildHtml('footer') ?>
+    <?php echo $this->getChildHtml('before_body_end') ?>
+    <?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<layout version="0.1.0">
+    <!-- <catalog_product_view>
+         <reference name="head">
+                <action method="addItem">
+         			<type>skin_js</type>
+                	<name>binarygeometry/tallfrontpage/js/tallfrontpage.js</name>
+                </action>
+                <action method="addCss">
+					<stylesheet>binarygeometry/tallfrontpage/css/tallfrontpage.css</stylesheet>
+				</action>
+            </reference>
+    </catalog_product_view> -->
+    <default>
+        <reference name="root">
+            <block type="tallfrontpage/tallblock"  name="tallfrontpage_tallblock"
+                          template="binarygeometry/tallfrontpage/tall-block.phtml" as="tallfrontpage" />
+            <block type="tallfrontpage/smallblock"  name="tallfrontpage_smallblock"
+                          template="binarygeometry/tallfrontpage/small-block.phtml" as="smallfrontpage" />
+            <!-- <block type="tallfrontpage/tallblock"  name="tallfrontpage_tallblock"
+                          template="binarygeometry/tallfrontpage/tall-block.phtml" as="tallblock" /> -->
+        </reference>
+      </default>
+     <!--  <tallgallery_index_index> //to show on controller page
+           <reference name="content">
+                <block type="tallgallery/tallblock"  name="tallgallery_tallblock"
+                          template="binarygeometry/tallgallery/tall-block.phtml" />
+           </reference>
+      </tallgallery_index_index> -->
+    
+</layout>

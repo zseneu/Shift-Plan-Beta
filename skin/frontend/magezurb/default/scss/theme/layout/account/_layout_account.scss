@@ -1,0 +1,21 @@
+.account-section-title{
+ color:$text-color; 
+ border-bottom:4px solid $loud-color;
+}
+
+.account-subtitle {
+	color:$text-color;
+	font-size: 18px;
+}
+
+.account-navigation { // ul
+	padding: 9px 0 9px 9px;
+	list-style: none;
+	margin-left: 0;
+}
+
+.account-block {
+	padding: 9px 9px 9px 9px;
+} 
+
+/* main cart */

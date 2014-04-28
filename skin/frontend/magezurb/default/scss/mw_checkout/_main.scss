@@ -1,0 +1,75 @@
+.mw-osc-block-title {
+	border-bottom: 5px solid $loud-color;
+	margin-bottom: 10px;
+ 	p {
+		padding: 0;
+		margin: 0;
+		font-size: 1.4rem;
+	}
+}
+
+.mw-osc-block {
+	fieldset {
+		padding:0;
+		margin:0;
+		border:none;
+	}
+	ul.form-list { /*is using an additional selector worth it for clarity of markup? */
+		list-style: none;
+		margin:0;
+		li fieldset ul{
+			list-style: none;
+			margin:0;
+
+		}
+
+	}
+	input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select{
+	background:#fff;
+	border:1px solid #636363;
+	border-radius: 2px;
+	padding:2px 5px;
+	box-shadow: none;
+	webkit-box-shadow:none;
+	height:1.7rem;
+	}
+}
+
+/* LAYOUT */
+.mw-osc-threecolumns {
+	@include grid-row();
+}
+.mw-osc-column-left{
+	// @include grid-column(4); 
+	
+}
+
+
+
+@media (min-width: 767px) {
+	.mw-osc-block{
+		// background: pink;
+	}
+   
+}
+@media (max-width: 767px) {
+ 	.mw-osc-block{
+		// background: grey;
+	} 
+}
+
+

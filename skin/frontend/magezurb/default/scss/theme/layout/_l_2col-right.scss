@@ -1,0 +1,33 @@
+@import "../../foundation/settings";
+$include-html-grid-classes: false;
+$include-html-classes: false;
+$include-print-styles: false;
+
+@import "../../foundation/components/global"; // *always required
+@import "../../foundation/components/grid";
+
+.layout {
+
+ 	@include grid-row();
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+section[role="content"]{
+	@media (min-width: 767px) { // big screens
+        @include grid-column($columns:9, $push:3); // // reverse order
+    }
+    @media (max-width: 767px) { // small screens
+        @include grid-column(12); 
+    } 
+	
+}
+aside[role="navigation"]{
+	@media (min-width: 767px) { // big screens
+        @include grid-column($columns:3, $pull:9); // reverse order
+    }
+    @media (max-width: 767px) { // small screens
+        @include grid-column(12); 
+    } 
+}
+

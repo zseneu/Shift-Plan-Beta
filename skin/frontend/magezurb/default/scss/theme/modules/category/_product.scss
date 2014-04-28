@@ -1,0 +1,67 @@
+/* product image 
+// template\catalog/product/list.phtml
+*/
+.products-grid {
+	text-align: center;
+	li a {
+		display:block;
+		width: 100%;
+		text-align: center;
+	}
+
+}
+.catalog-product-image {
+		position:relative;
+	}
+
+
+/* product description 
+// template\catalog/product/list.phtml
+*/
+.catalog-product-name { // a
+	width: 180px;
+	margin:0 auto;
+	a {
+		color:#636363;
+		font-size: 16px;
+	}
+}
+.catalog-product-name-desktop {
+	background: #282828;
+	width: 100%;
+	padding: .3rem;
+	color: snow;
+	font-size: 15px;
+	position: absolute;
+	bottom: 0;
+	opacity: 0.7;
+	display: block;
+}
+
+.catalog-empty {
+
+}
+
+/* product price
+// template\catalog/product/price.phtml
+*/ // SEE scss/theme/modules/product/_price.scss
+
+.catalog-product-price {
+	background: $loud-color;
+display: block;
+float: left;
+border-radius:117px;
+position: absolute;
+padding: 10px 10px 5px;
+top: 10px;
+right: 10px;
+height:72px;
+padding:24px 10px 5px;
+	.old-price{
+		display:none;
+	}
+	.price {
+		color:snow;
+		font-weight: 700px;
+	}
+}

@@ -1,0 +1,22 @@
+<layout version="0.1.0">
+    <catalog_product_view>
+     <reference name="head">
+        <action method="addItem">
+     			<type>skin_js</type>
+          <name>binarygeometry/tallgallery/js/tallgallery.js</name>
+        </action>
+        <action method="addCss">
+			   <stylesheet>binarygeometry/tallgallery/css/tallgallery.css</stylesheet>
+		    </action>
+      </reference>
+      <reference name="product.info"> 
+            <block type="tallgallery/tallblock"  name="tallgallery_tallblock" template="binarygeometry/tallgallery/tall-block.phtml" as="media" />
+      </reference>
+    </catalog_product_view>
+    
+      <tallgallery_ajax_index>
+        <reference name="root">
+           <block type="tallgallery/ajaxblock" name="root" as="ajaxblock" template="binarygeometry/tallgallery/ajax-block.phtml" />
+        </reference>
+      </tallgallery_ajax_index>
+</layout>

@@ -1,0 +1,7 @@
+
+    <?php 
+    	$_product = Mage::registry('current_product'); 
+    	$_helper = $this->helper('catalog/output');
+        $currentProduct = $_helper->productAttribute($_product, $_product->getName(), 'name');
+    ?>
+    <h1 class="product-name-h1"><?php echo $currentProduct; ?></h1>  

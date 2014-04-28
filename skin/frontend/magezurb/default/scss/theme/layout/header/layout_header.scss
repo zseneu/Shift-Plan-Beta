@@ -1,0 +1,112 @@
+header {
+  ul {
+    font-size: inherit; 
+  }
+}
+
+
+.small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}
+.small-menu-button {position:absolute;top:9px; font-size:0;  display: block; width:53px; height:43px; }
+.small-menu-button:hover {background-color:$loud-color; }
+.small-menu-button:focus {outline:none;background-color:transparent; }
+.small-menu-left-button  {float:left; left:5px; background:url('../images/small-menu-sprite.png') 0 0;  width:48px;  }
+.small-menu-right-button {float:right; right:5px;background:url('../images/small-menu-sprite.png') -377px 0;}
+.small-menu-logo {margin-top:0; padding-top:4px;}
+.small-menu-logo a {color:snow;}
+/*.small-menu-logo { font-size: 18px; width: 100px; display: block; background: red; float:left; }*/
+
+.center-text {
+  text-align: center;
+}
+
+  .form-search button {  
+    color: #fff;
+    background: #282828;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+    font-size: 19px;
+    padding: 5px 20px 5px 7px; 
+    border: 1px #636363 solid; 
+    border-left: none; margin: 0 0 0 -2px;  }
+  .form-search input{   
+    width:70%;
+    background: #282828; 
+    -moz-border-radius: 2px 0 0 2px; 
+    border-radius: 2px 0 0 2px; 
+    float: left;   
+    font-size: 14px; 
+    padding: 6px 20px 7px 7px; 
+    border: 1px solid #636363; 
+    border-right: none;
+    margin: 0;
+    height: auto !important;
+    color: #282828;}
+  .form-search input:focus {
+    background:#282828;
+    border:1px solid $loud-color;
+    color:snow;
+    box-shadow: none;
+    webkit-box-shadow:none;
+
+
+  }
+
+
+.small-menu-off-canvas-container {
+  position:relative;
+  width:100%;
+  right:0;
+  left:0;
+}
+
+ .small-menu-off-canvas-container.right-menu-active {
+  right:250px;
+  left:-250px;
+ }
+ .slide-menu-right.slide-menu-right-active {
+  right:0;
+ }
+ .small-menu-off-canvas-container.left-menu-active {
+  right:-250px;
+  left:250px;
+ }
+ .slide-menu-left.slide-menu-left-active {
+  left:250px;
+ }
+
+
+ /*as well as a transition value to the static classes*/
+
+ .small-menu-off-canvas-container {
+  transition:all 1.0s ease-in-out;
+ }
+
+.slide-menu-right {
+  transition:all 1.0s ease-in-out;
+ }
+ .slide-menu-left {
+  transition:all 1.0s ease-in-out;
+ }
+
+.slide-menu {
+  top:0;
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  height:100%;
+  background:#282828;
+}
+.slide-menu-left {
+  margin-left: -250px;
+  left: 0;
+  border-right:4px solid $loud-color;
+}
+
+.slide-menu-right {
+  margin-right: 0px;
+  right: -250px;
+  border-left:4px solid $loud-color;
+}
+

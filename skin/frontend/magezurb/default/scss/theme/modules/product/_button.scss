@@ -1,0 +1,30 @@
+/* uses third party template
+
+template\ajaxcart/catalog/product/view/addtocart.phtml */
+
+.add-to-cart label, #qty {
+	display:none;
+}
+
+.button.btn-cart {
+	background-color:$loud-color;
+	border-color:$loud-color;
+}
+.button.btn-cart:hover{
+	background-color:$accent-color;
+	border-color:$accent-color;
+}
+
+.tt-add-to-cart-button {
+	font-weight: normal;
+	border: none;
+	/*display:block;*/
+	padding: 12px 6px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 0px;
+
+	color: #fff;
+	background-color: #e78f1a;
+	border-color: none;
+}

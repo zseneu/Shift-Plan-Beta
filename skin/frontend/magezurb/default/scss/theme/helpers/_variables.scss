@@ -1,0 +1,39 @@
+@include fontFace('MyFont','font/myfont');
+
+/* Colors */
+
+$text-color: #636363;
+$accent-color: #ccc;
+// $loud-color: #e78f1a; 
+$loud-color: #e79639 ; 
+$really-loud-color:#ff7400;
+$link-color: #e78f1a; 
+$on-base-color: snow;
+$base-color:#282828;
+$base-dark-color: #828282;
+$base-light-color: #fff;
+
+
+// Header
+$header-background-color: $base-dark-color;
+
+// Sidebar
+$sidebar-background-color: $base-dark-color;
+
+// Footer
+$footer-background-color: $base-dark-color;
+
+// Button
+$button-background-color: $loud-color;
+
+/* Typography */
+
+$base-font-size: 15px;
+$base-font-family: "museo_slab500", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$base-font-weight: 400;
+
+// Headings
+$heading-font-family: $base-font-family;
+$heading-font-weight: $base-font-weight;
+
+
