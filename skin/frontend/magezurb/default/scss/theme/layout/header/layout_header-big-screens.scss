@@ -118,7 +118,7 @@
 			}
 			
 			li span {    
-					transition:all .7s ;
+					// transition:all .7s ;
 				color: snow;
 			}
 		}
@@ -136,6 +136,9 @@
 		float: right; 
 	}
 
+	.nav-flat-catalog li a span {
+		font-size: 13px !important;
+	}
 	.nav-flat-catalog li a:hover { 
 		
 	}

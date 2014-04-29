@@ -1956,7 +1956,6 @@ header ul {
         margin-left: 4px;
         margin-right: -4px; }
       .large-screen-header .links li span, .large-screen-header .nav-flat-catalog li span {
-        transition: all 0.7s;
         color: snow; }
     .large-screen-header .links li a {
       font-size: 12px; }
@@ -1966,6 +1965,9 @@ header ul {
 
   .nav-flat.top-right {
     float: right; }
+
+  .nav-flat-catalog li a span {
+    font-size: 13px !important; }
 
   .account-nav .nav-flat li a {
     font-size: 12px; }
