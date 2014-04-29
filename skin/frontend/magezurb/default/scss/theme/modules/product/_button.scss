@@ -9,6 +9,8 @@ template\ajaxcart/catalog/product/view/addtocart.phtml */
 .button.btn-cart {
 	background-color:$loud-color;
 	border-color:$loud-color;
+	color:$on-base-color;
+	font-family: $base-font-family;
 }
 .button.btn-cart:hover{
 	background-color:$accent-color;

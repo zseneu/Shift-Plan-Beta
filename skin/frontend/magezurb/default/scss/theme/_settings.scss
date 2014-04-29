@@ -20,6 +20,14 @@ a {
 	color:$loud-color;
 }
 
+.layout {
+
+ 	@include grid-row();
+	margin-top:30px;
+	margin-bottom:30px;
+    max-width: 61.5rem !important;
+}
+
 .small-menu-off-canvas-container {
 	button, .button {
 		background: #ccc;

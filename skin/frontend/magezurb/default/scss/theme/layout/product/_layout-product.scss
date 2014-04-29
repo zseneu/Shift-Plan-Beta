@@ -34,6 +34,7 @@ $include-print-styles: false;
         .price-box {
             display:none
         }
+        padding-left:0 !important;
     }
     @media (max-width: 767px) { // small screens
         @include grid-column(12); 

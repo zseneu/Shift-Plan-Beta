@@ -27,7 +27,7 @@
 
 <footer class="footer">
 	<div class="row">
-		<div class="medium-2 columns">
+		<div class="medium-2 columns footer-social-wrapper">
 			<a href="https://twitter.com/2tallcom"  class="footer-social footer-twitter" title="Follow us @2tallcom" >
 				Follow Us
 			</a>
@@ -43,7 +43,8 @@
 		</div>
 		<div class="medium-3 columns">
 			<h4 class="footer-heading">CONTACT US</h4>
-			<a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>" class="footer-tel">UK Landline: <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></a>
+			<span class="footer-address">UK Landline:</span><br/>
+			<a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>" class="footer-tel"> <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></a>
 			<p>Monday to Friday<br/> 10am - 5pm</p>
 			<address class="footer-address">Arch 3 Palmerston Road</address>
 			<address class="footer-address">Aberdeen, AB11 5RE, UK</address>	
@@ -94,16 +95,17 @@
 			<div class="footer-newsletter">
 				<?php echo $this->getChildHtml('footer.newsletter'); ?>
 			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="medium-8 columns">
-			<img src="<?php echo $this->getSkinUrl("images/cards/card_logos.png")?>" alt="PayPal"/>
+			<p class="copyright">&nbsp;&#169; 2tall.com Retail Ltd</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="large-12 columns">
-			<p class="copyright">&nbsp;&#169; 2tall.com Retail Ltd</p>
+			<img class="card-image" src="<?php echo $this->getSkinUrl("images/cards/card_logos.png")?>" alt="PayPal"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
+			
 		</div>
 	</div>
 </footer>
