@@ -6,7 +6,9 @@
     font-size: 19px;
     padding: 4px 20px 3px 7px; 
     border: 1px #636363 solid; 
-    border-left: none; margin: 0 0 0 -2px;  }
+    border-left: none; margin: 0 0 0 -2px;  
+    height:31px;
+    }
   .form-search input{   
     width:70%;
     background: #282828; 
@@ -18,7 +20,7 @@
     border: 1px solid #636363; 
     border-right: none;
     margin: 0;
-    height: auto !important;
+    height: 31px;
     color: #282828;}
   .form-search input:focus {
     background:#282828;

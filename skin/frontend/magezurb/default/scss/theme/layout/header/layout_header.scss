@@ -5,16 +5,18 @@ header {
   }
 }
 
-
-.small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}
-.small-menu-button {position:absolute;top:9px; font-size:0;  display: block; width:53px; height:43px; }
-.small-menu-button:hover {background-color:$loud-color; }
-.small-menu-button:focus {outline:none;background-color:transparent; }
-.small-menu-left-button  {float:left; left:5px; background:url('../images/small-menu-sprite.png') 0 0;  width:48px;  }
-.small-menu-right-button {float:right; right:5px;background:url('../images/small-menu-sprite.png') -377px 0;}
-.small-menu-logo {margin-top:0; padding-top:4px;}
-.small-menu-logo a {color:snow;}
-/*.small-menu-logo { font-size: 18px; width: 100px; display: block; background: red; float:left; }*/
+.small-menu-off-canvas-container {
+  .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}
+  .small-menu-button {position:absolute;top:9px; font-size:28px; color:snow;  display: block; width:53px; height:43px; }
+  .small-menu-button:hover {color:$loud-color }
+  // .small-menu-button:hover {background-color:$loud-color; }
+  .small-menu-button:focus {outline:none;background-color:transparent; }
+  .small-menu-left-button  {float:left; left:5px; background:url('images/small-menu-sprite.png') 0 0;  width:48px;  }
+  .small-menu-right-button {float:right; right:5px;background:url('images/small-menu-sprite.png') -377px 0;}
+  .small-menu-logo {margin-top:0; padding-top:0px; font-size:2.125rem;}
+  .small-menu-logo a {color:snow;}
+  /*.small-menu-logo { font-size: 18px; width: 100px; display: block; background: red; float:left; }*/
+}
 
 .center-text {
   text-align: center;

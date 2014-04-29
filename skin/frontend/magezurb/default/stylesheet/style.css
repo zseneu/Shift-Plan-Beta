@@ -1721,48 +1721,44 @@ button, .button {
 header ul {
   font-size: inherit; }
 
-.small-menu {
-  background: #282828;
-  height: 60px;
-  position: relative;
-  text-align: center;
-  top: 0;
-  border-bottom: 5px solid #e79639; }
+.small-menu-off-canvas-container {
+  /*.small-menu-logo { font-size: 18px; width: 100px; display: block; background: red; float:left; }*/ }
+  .small-menu-off-canvas-container .small-menu {
+    background: #282828;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    border-bottom: 5px solid #e79639; }
+  .small-menu-off-canvas-container .small-menu-button {
+    position: absolute;
+    top: 9px;
+    font-size: 28px;
+    color: snow;
+    display: block;
+    width: 53px;
+    height: 43px; }
+  .small-menu-off-canvas-container .small-menu-button:hover {
+    color: #e79639; }
+  .small-menu-off-canvas-container .small-menu-button:focus {
+    outline: none;
+    background-color: transparent; }
+  .small-menu-off-canvas-container .small-menu-left-button {
+    float: left;
+    left: 5px;
+    background: url("images/small-menu-sprite.png") 0 0;
+    width: 48px; }
+  .small-menu-off-canvas-container .small-menu-right-button {
+    float: right;
+    right: 5px;
+    background: url("images/small-menu-sprite.png") -377px 0; }
+  .small-menu-off-canvas-container .small-menu-logo {
+    margin-top: 0;
+    padding-top: 0px;
+    font-size: 2.125rem; }
+  .small-menu-off-canvas-container .small-menu-logo a {
+    color: snow; }
 
-.small-menu-button {
-  position: absolute;
-  top: 9px;
-  font-size: 0;
-  display: block;
-  width: 53px;
-  height: 43px; }
-
-.small-menu-button:hover {
-  background-color: #e79639; }
-
-.small-menu-button:focus {
-  outline: none;
-  background-color: transparent; }
-
-.small-menu-left-button {
-  float: left;
-  left: 5px;
-  background: url("../images/small-menu-sprite.png") 0 0;
-  width: 48px; }
-
-.small-menu-right-button {
-  float: right;
-  right: 5px;
-  background: url("../images/small-menu-sprite.png") -377px 0; }
-
-.small-menu-logo {
-  margin-top: 0;
-  padding-top: 4px; }
-
-.small-menu-logo a {
-  color: snow; }
-
-/*.small-menu-logo { font-size: 18px; width: 100px; display: block; background: red; float:left; }*/
 .center-text {
   text-align: center; }
 
@@ -2256,7 +2252,8 @@ button.btn-proceed-checkout {
   padding: 4px 20px 3px 7px;
   border: 1px #636363 solid;
   border-left: none;
-  margin: 0 0 0 -2px; }
+  margin: 0 0 0 -2px;
+  height: 31px; }
 
 .form-search input {
   width: 70%;
@@ -2269,7 +2266,7 @@ button.btn-proceed-checkout {
   border: 1px solid #636363;
   border-right: none;
   margin: 0;
-  height: auto !important;
+  height: 31px;
   color: #282828; }
 
 .form-search input:focus {

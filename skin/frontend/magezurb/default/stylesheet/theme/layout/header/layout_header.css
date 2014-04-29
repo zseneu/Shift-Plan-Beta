@@ -6,13 +6,13 @@ Syntax error: Undefined variable: "$loud-color".
 5:   }
 6: }
 7: 
-8: 
-9: .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}
-10: .small-menu-button {position:absolute;top:9px; font-size:0;  display: block; width:53px; height:43px; }
-11: .small-menu-button:hover {background-color:$loud-color; }
-12: .small-menu-button:focus {outline:none;background-color:transparent; }
-13: .small-menu-left-button  {float:left; left:5px; background:url('../images/small-menu-sprite.png') 0 0;  width:48px;  }
-14: .small-menu-right-button {float:right; right:5px;background:url('../images/small-menu-sprite.png') -377px 0;}
+8: .small-menu-off-canvas-container {
+9:   .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}
+10:   .small-menu-button {position:absolute;top:9px; font-size:28px; color:snow;  display: block; width:53px; height:43px; }
+11:   .small-menu-button:hover {color:$loud-color }
+12:   // .small-menu-button:hover {background-color:$loud-color; }
+13:   .small-menu-button:focus {outline:none;background-color:transparent; }
+14:   .small-menu-left-button  {float:left; left:5px; background:url('images/small-menu-sprite.png') 0 0;  width:48px;  }
 
 Backtrace:
 scss/theme/layout/header/layout_header.scss:9
@@ -23,6 +23,17 @@ c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/list_literal.rb:62:in `_perform'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/script/tree/node.rb:50:in `perform'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:366:in `visit_prop'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `block in with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:121:in `with_frame'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `with_base'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:389:in `block (2 levels) in visit_rule'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:389:in `map'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:389:in `block in visit_rule'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:387:in `visit_rule'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/base.rb:36:in `visit'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
 c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.3.1/lib/sass/stack.rb:79:in `block in with_base'
@@ -69,4 +80,4 @@ c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/listen-2.7.0/lib/listen/lis
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$loud-color\".\A         on line 9 of scss/theme/layout/header/layout_header.scss\A \A 4:     font-size: inherit; \A 5:   }\A 6: }\A 7: \A 8: \A 9: .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}\A 10: .small-menu-button {position:absolute;top:9px; font-size:0;  display: block; width:53px; height:43px; }\A 11: .small-menu-button:hover {background-color:$loud-color; }\A 12: .small-menu-button:focus {outline:none;background-color:transparent; }\A 13: .small-menu-left-button  {float:left; left:5px; background:url('../images/small-menu-sprite.png') 0 0;  width:48px;  }\A 14: .small-menu-right-button {float:right; right:5px;background:url('../images/small-menu-sprite.png') -377px 0;}"; }
+  content: "Syntax error: Undefined variable: \"$loud-color\".\A         on line 9 of scss/theme/layout/header/layout_header.scss\A \A 4:     font-size: inherit; \A 5:   }\A 6: }\A 7: \A 8: .small-menu-off-canvas-container {\A 9:   .small-menu {background:#282828; height:60px; position: relative; text-align: center; top:0; border-bottom:5px solid $loud-color;}\A 10:   .small-menu-button {position:absolute;top:9px; font-size:28px; color:snow;  display: block; width:53px; height:43px; }\A 11:   .small-menu-button:hover {color:$loud-color }\A 12:   // .small-menu-button:hover {background-color:$loud-color; }\A 13:   .small-menu-button:focus {outline:none;background-color:transparent; }\A 14:   .small-menu-left-button  {float:left; left:5px; background:url('images/small-menu-sprite.png') 0 0;  width:48px;  }"; }
