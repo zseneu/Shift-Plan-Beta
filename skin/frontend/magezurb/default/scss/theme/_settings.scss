@@ -54,3 +54,18 @@ a {
 		height:1.7rem;
 	}
 }
+.validation-advice {
+	color:red;
+}
+
+ul.messages {
+	list-style: none;
+	margin:0;
+	ul {
+		list-style: none;
+		margin:0;
+	}
+	span {
+		color:$loud-color;
+	}
+}

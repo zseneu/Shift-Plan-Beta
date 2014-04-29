@@ -120,6 +120,11 @@
                    <name>billing_agreements</name>
                 </action>
         </reference>
+
+        <reference name="left">
+        	<action method="unsetChild"><name>cart_sidebar</name></action>
+        	<action method="unsetChild"><name>catalog.compare.sidebar</name></action>
+        </reference>
 	    <!-- <reference name="header" type="page/html_header"> -->
         <!-- <block type="page/html_header" name="header" as="header"> -->
                 <!-- <block type="page/template_links" name="top.links" as="topLinks"/> -->

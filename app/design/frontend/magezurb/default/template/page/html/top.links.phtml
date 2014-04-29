@@ -40,6 +40,8 @@
 <?php else: ?> 
 <a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>"><?php echo $this->__('Log Out') ?></a> 
 <?php endif; ?> </li>
+<li>
+<a href="<?php echo Mage::getUrl('customer/account');?>"><?php echo $this->__('Account') ?></a></li>
 <li><a href="<?php echo $this->getUrl('contact')?>"><?php echo $this->__('Contact Us') ?>thisthisthis</a></li> 
 </ul>
 <?php endif; ?>

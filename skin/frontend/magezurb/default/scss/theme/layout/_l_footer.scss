@@ -71,8 +71,8 @@
 
 
 .footer-social {
-	width:99px; height:40px; display: block; float:left;  font-size: 0 !important;
-	background: url(images/social-sprite.png) no-repeat; margin-bottom: 7px;
+	width:55px; height:40px; display: block; float:left;  font-size: 0 !important;
+	background: url(images/social-sprite.png) no-repeat; margin-bottom: 4px;
 }
 
 
@@ -81,8 +81,15 @@
 .footer-facebook  {background-position:0px 0px;}
 .footer-facebook  {background-position:-312px 0px;}
 
-.copyright{
-	display:block;
+.card-image{
+	display: block;
+	width:244px;
 	float:left;
-	width:100%;
+	margin:12px auto 0;
+}
+
+.copyright{
+	margin-top:12px;
+	margin-bottom:12px;
+	text-align: center;
 }

@@ -539,22 +539,29 @@
 	
 		<hidden value="Welcome to One Step Checkout Pro"></hidden>
 		<hidden value="Please enter your details below to complete your purchase."></hidden>
+		<div class="row">
+			<div class="large-12 columns">
 		<h1 class="mw-osc-page-tittle"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_title'))?></h1>
 		<p class="mw-osc-page-content"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_content'))?></p>
-		<div id="message-box">
-			<?php if(Mage::getSingleton('core/session')->getErrorpayment()!=""):?>
-			<div class="error-msg" style="magin-bottom:10px;">
-				<?php echo Mage::getSingleton('core/session')->getErrorpayment();?>
 			</div>
-			<?php endif;?>
-			<?php echo $this->getMessagesBlock()->getGroupedHtml()?>	
 		</div>
-		<?php if(!$islogin):?>
-			<?php if(Mage::getStoreConfig('onestepcheckout/config/enable_quicklogin')):?>
-			<a id="loginbox" href="#inline1" title=""><?php echo $this->__('Already registered? Click here to login.');?></a>
-			<?php endif?>
-		<?php endif?>
-	
+		<div class="row checkout-login">
+			<div class="large-12 columns">
+				<div id="message-box">
+					<?php if(Mage::getSingleton('core/session')->getErrorpayment()!=""):?>
+					<div class="error-msg" style="magin-bottom:10px;">
+						<?php echo Mage::getSingleton('core/session')->getErrorpayment();?>
+					</div>
+					<?php endif;?>
+					<?php echo $this->getMessagesBlock()->getGroupedHtml()?>	
+				</div>
+				<?php if(!$islogin):?>
+					<?php if(Mage::getStoreConfig('onestepcheckout/config/enable_quicklogin')):?>
+					<a id="loginbox" href="#inline1" title=""><?php echo $this->__('Already registered? 	Click here to login.');?></a>
+					<?php endif?>
+				<?php endif?>
+			</div>
+		</div>
 		<div class="mw-osc-threecolumns mw-osc-checkoutcontainer mw-osc-skin-generic">
 			<form id="onestep_form" action="<?php echo $this->getUrl('onestepcheckout/index/updateordermethod')?>" method="POST">
 				<div class="row">

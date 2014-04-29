@@ -1398,6 +1398,18 @@ a {
   webkit-box-shadow: none;
   height: 1.7rem; }
 
+.validation-advice {
+  color: red; }
+
+ul.messages {
+  list-style: none;
+  margin: 0; }
+  ul.messages ul {
+    list-style: none;
+    margin: 0; }
+  ul.messages span {
+    color: #e79639; }
+
 /* layout */
 .layout {
   width: 100%;
@@ -1675,13 +1687,13 @@ button, .button {
   color: #9C1633; }
 
 .footer-social {
-  width: 99px;
+  width: 55px;
   height: 40px;
   display: block;
   float: left;
   font-size: 0 !important;
   background: url(images/social-sprite.png) no-repeat;
-  margin-bottom: 7px; }
+  margin-bottom: 4px; }
 
 .footer-twitter {
   background-position: -104px 0px; }
@@ -1695,10 +1707,16 @@ button, .button {
 .footer-facebook {
   background-position: -312px 0px; }
 
-.copyright {
+.card-image {
   display: block;
+  width: 244px;
   float: left;
-  width: 100%; }
+  margin: 12px auto 0; }
+
+.copyright {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center; }
 
 header ul {
   font-size: inherit; }
@@ -1891,10 +1909,10 @@ header ul {
       background: #e79639; }
     .large-screen-header .links li a:hover {
       color: #e79639; }
-    .large-screen-header .cart-links ul li.last {
+    .large-screen-header .cart-links ul li:last-of-type {
       padding-right: 0;
       margin-right: 0; }
-      .large-screen-header .cart-links ul li.last a {
+      .large-screen-header .cart-links ul li:last-of-type a {
         padding-right: 0;
         margin-right: 0; }
     .large-screen-header .links, .large-screen-header .nav-flat-catalog {
@@ -2426,7 +2444,10 @@ input[type="text"].subscribe-input {
     padding: 0; }
   .catalog-product-price .old-price {
     display: none; }
+  .catalog-product-price h5.price {
+    font-size: 1.125rem; }
   .catalog-product-price .price {
+    font-size: 1.125rem;
     margin: 0;
     padding: 0;
     color: snow;
@@ -2727,3 +2748,14 @@ template\ajaxcart/catalog/product/view/addtocart.phtml */
     display: table; }
   .mw-osc-threecolumns:after {
     clear: both; }
+
+.onestepcheckout_place_order_button button {
+  background: #e79639 !important;
+  color: snow !important; }
+
+.onestepcheckout_place_order_button button {
+  background: #ccc;
+  color: #282828; }
+
+.checkout-login {
+  margin-bottom: 15px; }

@@ -43,7 +43,7 @@
 		</div>
 		<div class="medium-3 columns">
 			<h4 class="footer-heading">CONTACT US</h4>
-			<a href="<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>" class="footer-tel">UK Landline: <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></a>
+			<a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>" class="footer-tel">UK Landline: <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></a>
 			<p>Monday to Friday<br/> 10am - 5pm</p>
 			<address class="footer-address">Arch 3 Palmerston Road</address>
 			<address class="footer-address">Aberdeen, AB11 5RE, UK</address>	
@@ -97,14 +97,15 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="medium-4 columns">
+		<div class="medium-8 columns">
 			<img src="<?php echo $this->getSkinUrl("images/cards/card_logos.png")?>" alt="PayPal"/>
 		</div>
-		<div class="medium-8 columns">
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
 			<p class="copyright">&nbsp;&#169; 2tall.com Retail Ltd</p>
 		</div>
-		</div>
-	</div>        
+	</div>
 </footer>
 
 <script>
