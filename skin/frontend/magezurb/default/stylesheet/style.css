@@ -1369,6 +1369,35 @@ h1, h2, h3, h4, h5, h6, li, li a, a, span, button, input {
 a {
   color: #e79639; }
 
+.small-menu-off-canvas-container button, .small-menu-off-canvas-container .button {
+  background: #ccc;
+  color: #282828; }
+.small-menu-off-canvas-container table {
+  border: none;
+  width: 100%; }
+.small-menu-off-canvas-container input[type="text"],
+.small-menu-off-canvas-container input[type="password"],
+.small-menu-off-canvas-container input[type="date"],
+.small-menu-off-canvas-container input[type="datetime"],
+.small-menu-off-canvas-container input[type="datetime-local"],
+.small-menu-off-canvas-container input[type="month"],
+.small-menu-off-canvas-container input[type="week"],
+.small-menu-off-canvas-container input[type="email"],
+.small-menu-off-canvas-container input[type="number"],
+.small-menu-off-canvas-container input[type="search"],
+.small-menu-off-canvas-container input[type="tel"],
+.small-menu-off-canvas-container input[type="time"],
+.small-menu-off-canvas-container input[type="url"],
+.small-menu-off-canvas-container textarea,
+.small-menu-off-canvas-container select {
+  background: #fff;
+  border: 1px solid #636363;
+  border-radius: 2px;
+  padding: 2px 5px;
+  box-shadow: none;
+  webkit-box-shadow: none;
+  height: 1.7rem; }
+
 /* layout */
 .layout {
   width: 100%;
@@ -2173,6 +2202,15 @@ header ul {
   padding-top: 5px; }
 
 /* main cart */
+button.btn-proceed-checkout {
+  background: #e79639 !important;
+  color: snow !important; }
+
+.cart-item-wrapper:last-of-type {
+  border-bottom: 1px dotted #e79639;
+  padding-bottom: 5px;
+  margin-bottom: 25px; }
+
 .account-section-title {
   color: #636363;
   border-bottom: 4px solid #e79639; }

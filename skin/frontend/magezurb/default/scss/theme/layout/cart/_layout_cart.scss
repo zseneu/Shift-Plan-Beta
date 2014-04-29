@@ -73,3 +73,15 @@ color: #636363;
 	padding-top: 5px;
 }
 /* main cart */
+
+button.btn-proceed-checkout{
+	background: $loud-color !important;
+	color:snow !important;
+}
+
+.cart-item-wrapper:last-of-type{
+	border-bottom:1px dotted $loud-color;
+	padding-bottom: 5px;
+	margin-bottom:25px;
+
+}

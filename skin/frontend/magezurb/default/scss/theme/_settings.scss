@@ -19,3 +19,38 @@ h1, h2, h3, h4, h5, h6, li, li a, a, span, button, input,  { font-family: $base-
 a {
 	color:$loud-color;
 }
+
+.small-menu-off-canvas-container {
+	button, .button {
+		background: #ccc;
+		color: #282828;
+	}
+
+	 table{
+		border:none;
+		width: 100%;
+	}
+		input[type="text"],
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="week"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	textarea,
+	select{
+		background:#fff;
+		border:1px solid #636363;
+		border-radius: 2px;
+		padding:2px 5px;
+		box-shadow: none;
+		webkit-box-shadow:none;
+		height:1.7rem;
+	}
+}
