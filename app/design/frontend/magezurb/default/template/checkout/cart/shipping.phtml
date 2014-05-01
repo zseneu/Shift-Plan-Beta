@@ -30,27 +30,25 @@
  */
 ?>
 
-    <h2 class="cart-widget-title">Delivery</h2>
+    <!-- <h2 class="cart-widget-title">Delivery</h2> -->
 
     <div class="row">
-        <div class="large-6 columns">
+        <div class="large-4 columns">
+            </label>Post Code</label>
             <form action="<?php echo $this->getUrl('checkout/cart/estimatePost') ?>" method="post" id="shipping-zip-form">
-            <label for="postcode"<?php if ($this->isZipCodeRequired()) echo ' class="required"' ?>><?php if ($this->isZipCodeRequired()) echo '<em>*</em>' ?><?php echo $this->__('Zip/Postal Code') ?></label>
+            <!-- <label for="postcode"<?php if ($this->isZipCodeRequired()) echo ' class="required"' ?>><?php if ($this->isZipCodeRequired()) echo '<em>*</em>' ?><?php echo $this->__('Zip/Postal Code') ?></label> -->
             <input class="input-text validate-postcode<?php if ($this->isZipCodeRequired()):?> required-entry<?php endif;?>" type="text" id="postcode" name="estimate_postcode" value="<?php echo $this->htmlEscape($this->getEstimatePostcode()) ?>" />
         </div>
-        <div class="large-6 columns">
-             <label for="country"><?php echo $this->__('Country') ?></label>
-            <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getEstimateCountryId()) ?>
+        <div class="large-8 columns">
+            <label>Country</label>
+             <!-- <label for="country"><?php echo $this->__('Country') ?></label> -->
+            <div class="html-select-wrapper">
+                <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getEstimateCountryId()) ?>
+            </div>
+            <button type="button" class="button subscribe-button" id="getquote" title="<?php echo $this->__('Update Delivery Quote') ?>" onclick="coShippingMethodForm.submit()"><?php echo $this->__('Update') ?></button>
         </div>
     </div>
-    <div class="row">
-        <div class="large-6 columns">
-            <p>UK - Next Working Day. International Delivery in 2-3 Days. <a href="http://www.2tall.com/delivery" class="modal">More info</a></p>
-        </div>
-        <div class="large-6 columns">
-            <button type="button normal-button" id="getquote" title="<?php echo $this->__('Update Delivery Quote') ?>" onclick="coShippingMethodForm.submit()" class="button normal-button"><?php echo $this->__('Update Total') ?></button>
-        </div>
-    </div>
+    
         </form>
    
    

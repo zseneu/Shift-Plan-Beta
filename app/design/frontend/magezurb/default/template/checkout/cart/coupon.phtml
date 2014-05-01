@@ -25,23 +25,23 @@
  */
 ?>
 <form id="discount-coupon-form" action="<?php echo $this->getUrl('checkout/cart/couponPost') ?>" method="post">
-   
-        <h2 class="cart-widget-title"><?php echo $this->__('Discount Codes') ?></h2>
-     
+   <div class="row">
+        <div class="large-12 columns">
+            <p>Enter your voucher codes here</p>
+            <!-- <h2 class="cart-widget-title"><?php echo $this->__('Discount Codes') ?></h2> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-7 columns">
             <input type="hidden" name="remove" id="remove-coupone" value="0" />
-
-            <div class="row">
-                <div class="large-6 columns">
-                    <label for="coupon_code"><?php echo $this->__('Enter your coupon code if you have one.') ?></label>
-                    <input type="text" id="coupon_code" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" />
-                </div>
-                <div class="large-6 columns">
-                    <button type="button" title="<?php echo $this->__('Apply Coupon') ?>" class="button" onclick="discountForm.submit(false)" value="<?php echo $this->__('Apply Coupon') ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>
-                    <?php if(strlen($this->getCouponCode())): ?>
-                        &nbsp; <button type="button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button" onclick="discountForm.submit(true)" value="<?php echo $this->__('Cancel Coupon') ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
-                    <?php endif;?>
-                </div>
-            </div>
+            <input type="text" id="coupon_code" name="coupon_code" class="subscribe-input" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" />
+            <button type="button" title="<?php echo $this->__('Apply Coupon') ?>" class="button subscribe-button" onclick="discountForm.submit(false)" value="<?php echo $this->__('Apply Coupon') ?>"><span><span><?php echo $this->__('Apply Coupon') ?></span></span></button>
+            <?php if(strlen($this->getCouponCode())): ?>
+                &nbsp; <button type="button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button" onclick="discountForm.submit(true)" value="<?php echo $this->__('Cancel Coupon') ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>
+            <?php endif;?>
+                
+        </div>
+    </div>
           
 </form>
 <script type="text/javascript">
