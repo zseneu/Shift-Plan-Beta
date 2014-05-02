@@ -90,7 +90,7 @@
                             <?php  echo $this->getChildHtml('addto') ?>
                         </div>
                     <?php endif; ?>
-               
+              
       
                     <?php echo $this->getChildHtml('other');?>
               
@@ -100,14 +100,33 @@
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
                     <!-- end options and buy now -->
-               
+                     <dl class="accordion" data-accordion="myAccordionGroup">
+                      <dd class="active">
+                        <a href="#panel1c">DESCRIPTION<i class="fa fa-angle-up"></i><i class="fa fa-angle-down"></i></a>
+                        <div id="panel1c" class="content active">
+                            <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+                            <!--?php// $parent = $this->getParentBlock();?-->
+                            <!--?php// echo $parent; ?-->
+                            <?php echo $html;?>
+                            <?php endforeach;?> 
+                    
+                        </div>
+                      </dd>
+                      <dd>
+                        <a href="#panel2c">SIZE GUIDES<i class="fa fa-angle-up"></i><i class="fa fa-angle-down"></i></a>
+                        <div id="panel2c" class="content">
+                          Panel 2. Lorem ipsum dolor
+                        </div>
+                      </dd>
+                      <dd>
+                        <a href="#panel3c">DELIVERY AND RETURNS<i class="fa fa-angle-up"></i><i class="fa fa-angle-down"></i></a>
+                        <div id="panel3c" class="content">
+                          <p>delivery and returns</p>
+                        </div>
+                      </dd>
+                    </dl>
           
-                    <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
-                        <!--?php// $parent = $this->getParentBlock();?-->
-                        <!--?php// echo $parent; ?-->
-                        <?php echo $html;?>
-                    <?php endforeach;?> 
-                
+                    
             
                         <?php echo $this->getChildHtml('socialLinks') ?>
                                     

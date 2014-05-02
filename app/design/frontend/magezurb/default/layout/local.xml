@@ -83,7 +83,7 @@
             <!--<action method="addItem"><type>skin_js</type><name>js/foundation/vendor/placeholder.js</name><params/></action>-->
 
             <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.abide.js</name><params/></action>-->
-            <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.accordion.js</name><params/></action>-->
+            <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.accordion.js</name><params/></action>
             <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.alert.js</name><params/></action>-->
             <!--<action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.clearing.js</name><params/></action>-->            
             <action method="addItem"><type>skin_js</type><name>js/foundation/foundation/foundation.dropdown.js</name><params/></action>

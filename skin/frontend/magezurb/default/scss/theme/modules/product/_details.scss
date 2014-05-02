@@ -19,9 +19,49 @@ font-size: 34px;
 
 .descriptionz {
 	width:100%;
-	border-top: 5px solid $loud-color;
-	margin-top:10px; padding:20px 00;
+	padding:0 0 20px;
+	// border-top: 5px solid $loud-color;
+	// margin-top:10px; padding:20px 00;
 	float:left;
 }
+.product-detail-column{
+	.accordion {
+		margin-bottom:20px;
+	}
+	.accordion .content.active {
+		border-bottom:1px solid $accent-color;
+	}
+	
+	.accordion dd:first-of-type > a{
+		border-top:1px solid $accent-color;
+	}
+	.accordion dd > a{
+		background: #fff;
+		padding: 5px;
+		color:$text-color;
+		display: block; 
+		border-bottom:1px solid $accent-color;
+		.fa-angle-down {
+			display: none;
+		}
+		.fa {
+			float:right;
+		}
+	}
+	.accordion dd.active > a{
+		border-bottom:none;
+		.fa-angle-up {
+			display: none !important;
+		}
+		.fa-angle-down {
+			display: block;
+		}
+	}
+	.accord-top {
+		border-top:1px solid $accent-color;
+	}
+
+}
+
 
 
