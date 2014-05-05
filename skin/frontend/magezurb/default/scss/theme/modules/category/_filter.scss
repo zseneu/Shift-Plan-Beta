@@ -8,7 +8,7 @@
     @media (max-width: 767px) { // small screens
         @include inline-list;
     }
-    padding: 9px 0 9px 9px;
+    padding: 9px 0 9px 0px;
     list-style: none;
     margin-left: 0;
 }

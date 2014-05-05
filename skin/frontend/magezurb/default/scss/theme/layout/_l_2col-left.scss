@@ -10,6 +10,7 @@ $include-print-styles: false;
 section[role="content"]{
 	@media (min-width: 767px) { // big screens
         @include grid-column($columns:9);//,  $offset:1); 
+        width: 80% !important;
     }
     @media (max-width: 767px) { // small screens
         @include grid-column(12); 
@@ -20,6 +21,7 @@ section[role="content"]{
 aside[role="navigation"]{
 	@media (min-width: 767px) { // big screens
         @include grid-column(3); 
+        width:20% !important;
     }
     @media (max-width: 767px) { // small screens
         @include grid-column(12); 

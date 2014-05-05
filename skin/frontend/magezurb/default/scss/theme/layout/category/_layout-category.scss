@@ -11,10 +11,16 @@ $include-print-styles: false;
 .products-grid { 
     @media (min-width: 767px) { // big screens
         @include block-grid(3);
-        // padding:0 0.925rem 1.85rem !important;
+        li{
+
+        padding:0 1.6rem 3.2rem !important;
+        }
     }
     @media (max-width: 767px) { // small screens
-        @include block-grid(2);
+        @include block-grid(1);
+        li {
+        	margin-bottom: 4rem;
+        }
     } 
 }
 
@@ -23,4 +29,9 @@ $include-print-styles: false;
 */
 .block-layered-nav {
 
+}
+.cms-menu ul {
+	margin-top:9px;
+	margin-left:0;
+	list-style: none;
 }
