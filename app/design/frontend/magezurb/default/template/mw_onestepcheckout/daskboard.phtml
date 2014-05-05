@@ -536,15 +536,19 @@
 		}*/
 		</style>
 	<?php endif;?>
+
 	
 		<hidden value="Welcome to One Step Checkout Pro"></hidden>
 		<hidden value="Please enter your details below to complete your purchase."></hidden>
+		<!-- message row -->
 		<div class="row">
 			<div class="large-12 columns">
-		<h1 class="mw-osc-page-tittle"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_title'))?></h1>
-		<p class="mw-osc-page-content"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_content'))?></p>
+				<h1 class="mw-osc-page-tittle"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_title'))?></h1>
+				<p class="mw-osc-page-content"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_content'))?></p>
 			</div>
 		</div>
+		<!-- end message row -->
+		<!-- login row -->
 		<div class="row checkout-login">
 			<div class="large-12 columns">
 				<div id="message-box">
@@ -562,10 +566,12 @@
 				<?php endif?>
 			</div>
 		</div>
-		<div class="mw-osc-threecolumns mw-osc-checkoutcontainer mw-osc-skin-generic">
-			<form id="onestep_form" action="<?php echo $this->getUrl('onestepcheckout/index/updateordermethod')?>" method="POST">
-				<div class="row">
-			<div class="medium-4 columns">
+		<!-- end login row -->
+		<!-- <div class="mw-osc-threecolumns mw-osc-checkoutcontainer mw-osc-skin-generic"> -->
+	<form id="onestep_form" action="<?php echo $this->getUrl('onestepcheckout/index/updateordermethod')?>" method="POST">
+		<!-- address row -->
+		<div class="row first-row">
+			<div class="medium-12 columns">
 				<!-- begin mw-osc-column-left -->
 				<div class="mw-osc-column mw-osc-column-left">	
 					<div class="mw-osc-block">
@@ -598,72 +604,71 @@
 						<?php endif;?>
 					</div>
 				</div>
-				<!-- end mw-osc-column-left -->
-			</div><!-- end medium-4 columns -->
-			<div class="medium-8 columns">
-				<div class="row">
-					<!-- begin mw-osc-columns-2 -->
-					<div class="mw-osc-column-2">
-						<div id="mw-osc-column-container">
-						<?php if(!Mage::helper('onestepcheckout')->onlyProductDownloadable()):?>
-							<div class="mw-osc-column mw-osc-column-middle medium-6 columns">	
-								<div class="mw-osc-block">
-									<div class="mw-osc-block-title">
-										<p class="onestepcheckout-numbers onestepcheckout-numbers-2" id="mw-osc-p2">
-											<?php echo $this->__('Shipping method');?>
-										</p>
-									</div>
-									<?php echo $this->getChildHtml('shipping_method');?>
-								</div>
-							</div>
-						<?php endif?>						
-							<div class="mw-osc-column  mw-osc-column-right medium-6 columns" >
-								<div class="mw-osc-block" id="opc-payment" class="section allow">							
-									<div class="mw-osc-block-title" >
-										<p <?php if(Mage::helper('onestepcheckout')->onlyProductDownloadable())
-										          echo "class='onestepcheckout-numbers onestepcheckout-numbers-2' id='mw-osc-p2'";								          
-										          else 
-										          {
-										          if(Mage::getStoreConfig("onestepcheckout/deliverydate/allow_options"))
-										          echo "class='onestepcheckout-numbers onestepcheckout-numbers-4' id='mw-osc-p4'";
-										          else echo "class='onestepcheckout-numbers onestepcheckout-numbers-3' id='mw-osc-p3'";
-										          }?>>
-												  <?php echo $this->__('Payment method');?>
-										</p>
-									</div>
-										<div class="mw-osc-block-content" >
-											<div id="checkout-step-payment" class="step a-item" >
-											<?php echo $this->getChildHtml('payment');?>
-											</div>
-										</div>
-								</div>
-							</div>
-							<div class="clear_both">&nbsp;</div>
-						</div>
-					</div>
-					<!-- end mw-osc-columns-2 -->
-				</div><!-- end row -->
-				<div class="row">
-					<!-- begin review -->
-					<div class="review">
+			</div><!-- end mw-osc-column-left -->
+		</div>
+		<!-- shipping payment row -->
+		<div class="row second-row">
+			<!-- begin mw-osc-columns-2 -->
+			<div class="mw-osc-column-2">
+				<div id="mw-osc-column-container">
+				<?php if(!Mage::helper('onestepcheckout')->onlyProductDownloadable()):?>
+					<div class="mw-osc-column mw-osc-column-middle medium-6 columns">	
 						<div class="mw-osc-block">
 							<div class="mw-osc-block-title">
-								<p class="onestepcheckout-numbers onestepcheckout-numbers-6">
-									<?php echo $this->__('Review your order');?>
+								<p class="onestepcheckout-numbers onestepcheckout-numbers-2" id="mw-osc-p2">
+									<?php echo $this->__('Shipping method');?>
 								</p>
 							</div>
-							<?php echo $this->getChildHtml('review');?>
+							<?php echo $this->getChildHtml('shipping_method');?>
 						</div>
 					</div>
-					<!-- end review -->
-				</div><!-- end row -->
-			</div><!-- end medium-8 columns -->
+				<?php endif?>						
+					<div class="mw-osc-column  mw-osc-column-right medium-6 columns" >
+						<div class="mw-osc-block" id="opc-payment" class="section allow">							
+							<div class="mw-osc-block-title" >
+								<p <?php if(Mage::helper('onestepcheckout')->onlyProductDownloadable())
+								          echo "class='onestepcheckout-numbers onestepcheckout-numbers-2' id='mw-osc-p2'";								          
+								          else 
+								          {
+								          if(Mage::getStoreConfig("onestepcheckout/deliverydate/allow_options"))
+								          echo "class='onestepcheckout-numbers onestepcheckout-numbers-4' id='mw-osc-p4'";
+								          else echo "class='onestepcheckout-numbers onestepcheckout-numbers-3' id='mw-osc-p3'";
+								          }?>>
+										  <?php echo $this->__('Payment method');?>
+								</p>
+							</div>
+								<div class="mw-osc-block-content" >
+									<div id="checkout-step-payment" class="step a-item" >
+									<?php echo $this->getChildHtml('payment');?>
+									</div>
+								</div>
+						</div>
+					</div>
+					<div class="clear_both">&nbsp;</div>
 				</div>
-
-
-
-				<div class="clear_both">&nbsp;</div>			
-			</form>
+			</div>
+			<!-- end mw-osc-columns-2 -->
+		</div><!-- end row -->
+		<!-- end shipping payment row -->
+		<!-- review row -->
+		<div class="row third-row">
+			<div class="large-12 columns">
+			<!-- begin review -->
+				<div class="review">
+					<div class="mw-osc-block">
+						<div class="mw-osc-block-title">
+							<p class="onestepcheckout-numbers onestepcheckout-numbers-6">
+								<?php echo $this->__('Review your order');?>
+							</p>
+						</div>
+						<?php echo $this->getChildHtml('review');?>
+					</div>
+				</div>
+			</div>
+			<!-- end review -->
+		</div><!-- end row -->
+		<!-- end review -->
+	</form>
 			
 			<?php if(version_compare(Mage::getVersion(),'1.4.0.1','>='))://fix cho magento >= 1.4?>
 					<div style="display: none;">
@@ -703,3 +708,10 @@
 		    <p id="loading_mask_loader" class="loader"><img alt="Loading..." src="<?php echo $this->getSkinUrl('mw_onestepcheckout/images/ajax-loader-tr.gif')?>"></p>
 		</div>
 	<?php endif?>
+	<script>
+	alert(jQuery);
+	jQuery(document).ready(function() {
+		alert(jQuery('.second-row'));
+		// jQuery('.second-row').hide();
+	});
+	</script>

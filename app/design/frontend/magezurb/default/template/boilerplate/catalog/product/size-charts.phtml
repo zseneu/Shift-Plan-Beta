@@ -1,26 +1,5 @@
-<div class="sizechart" > 
-	<a href="#sizecharts" title="sizing charts" class="size-chart-button" data-reveal-id="sizecharts" data-reveal>size guide</a>
-</div>
 
-<div class="reveal-modal fade bs-example-modal-lg" id="sizecharts" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-reveal>
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    	<div class="modal-header">
-        	<button type="button" class="close-reveal-modal button" data-dismiss="modal" aria-hidden="true" >&times;</button>
-        	
-      	</div>
-      	<div class="modal-body">
-      		<div class="row">
-      			<div class="large-4 columns size-image">
-	    		</div>
-			    <div class="large-8 columns size-table">
-	    		</div>
-	    	</div>
-	 	</div>
-    </div>
-  </div>
-</div>
-<div class="make-this-hidden"><!-- temporary hack until backend can be built -->
+
  <?php
 			$_product = Mage::registry('current_product'); 
 	     	echo  Mage::app() 
@@ -29,10 +8,3 @@
 	     		->setBlockId($_product->getAttributeText('size_chart_template')) 
 	     		->toHtml(); 
 	     ?>
-</div>
-<script>
-jQuery( document ).ready(function( $ ) {
-	jQuery('.sizeInside img').prependTo('.size-image');
-	jQuery('.stOuter table').prependTo('.size-table');
-});
-</script>

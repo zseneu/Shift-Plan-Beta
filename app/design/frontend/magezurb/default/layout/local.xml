@@ -46,8 +46,8 @@
 			</action>
 
 				<action method="addItem">
-					<type>skin_js</type>
-					<name>js/magezurb/libraries/jquery-1.10.2-noconflict.min.js</name>
+					<type>js</type>
+					<name>magezurb/libraries/jquery-1.10.2-noconflict.min.js</name>
 				</action>
 				<action method="addItem">
 					<type>skin_js</type>

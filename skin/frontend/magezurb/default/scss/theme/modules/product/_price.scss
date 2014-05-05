@@ -24,8 +24,10 @@
 		display:block;
 	}
 	.product-view .price-box{
-		padding-bottom:20px; margin-bottom:20px;
+		margin-bottom:10px;
+		border-bottom: 5px solid $loud-color;
 		width:100%;
+		float:left;
 		// border-bottom:4px solid #e78f1a;
 		
 	}

@@ -1640,6 +1640,73 @@ button, .button {
     .footer-heading {
       margin-top: 15px; } }
 
+.footer-social-wrapper {
+  padding-top: 1.9rem; }
+  @media (min-width: 767px) {
+    .footer-social-wrapper {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+      width: 16.66667%;
+      float: left; } }
+  @media (max-width: 767px) {
+    .footer-social-wrapper {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+      width: 100%;
+      float: left; } }
+
+@media (min-width: 767px) {
+  .footer-contact-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 25%;
+    float: left; } }
+@media (max-width: 767px) {
+  .footer-contact-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 100%;
+    float: left; } }
+
+@media (min-width: 767px) {
+  .footer-custserv-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 16.66667%;
+    float: left; } }
+@media (max-width: 767px) {
+  .footer-custserv-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 100%;
+    float: left; } }
+
+@media (min-width: 767px) {
+  .footer-about-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 16.66667%;
+    float: left; } }
+@media (max-width: 767px) {
+  .footer-about-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 100%;
+    float: left; } }
+
+@media (min-width: 767px) {
+  .footer-newsletter-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 25%;
+    float: left; } }
+@media (max-width: 767px) {
+  .footer-newsletter-wrapper {
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    width: 100%;
+    float: left; } }
+
 .footer-address {
   font-style: default; }
 
@@ -1711,6 +1778,11 @@ button, .button {
   background: url(images/social-sprite.png) no-repeat;
   margin-bottom: 4px; }
 
+@media (max-width: 767px) {
+  .footer-social-icons {
+    margin: 0 auto;
+    width: 220px; } }
+
 .footer-twitter {
   background-position: -104px 0px; }
 
@@ -1723,11 +1795,11 @@ button, .button {
 .footer-facebook {
   background-position: -312px 0px; }
 
-.card-image {
-  width: 244px;
-  margin: 15px auto 0;
-  /* float: left; */
-  display: block; }
+@media (max-width: 767px) {
+  .card-image {
+    margin: 0 auto;
+    width: 244px;
+    display: block; } }
 
 .copyright {
   margin-top: 12px;
@@ -1736,9 +1808,6 @@ button, .button {
 
 .footer-tel {
   font-size: 1.7rem !important; }
-
-.footer-social-wrapper {
-  padding-top: 1.9rem; }
 
 header ul {
   font-size: inherit; }
@@ -2539,9 +2608,10 @@ h5.price {
   display: block; }
 
 .product-view .price-box {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  width: 100%; }
+  margin-bottom: 10px;
+  border-bottom: 5px solid #e79639;
+  width: 100%;
+  float: left; }
 
 .sizechart {
   float: left;
@@ -2627,8 +2697,7 @@ h5.price {
 .product-options {
   display: block;
   width: 100%;
-  float: left;
-  margin-top: -17px; }
+  float: left; }
 
 .product-options-bottom {
   width: 100%;

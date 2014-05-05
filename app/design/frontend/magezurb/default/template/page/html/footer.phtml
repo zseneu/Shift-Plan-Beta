@@ -27,21 +27,23 @@
 
 <footer class="footer">
 	<div class="row">
-		<div class="medium-2 columns footer-social-wrapper">
-			<a href="https://twitter.com/2tallcom"  class="footer-social footer-twitter" title="Follow us @2tallcom" >
-				Follow Us
-			</a>
-			<a href="https://facebook.com/2tallcom" class="footer-social footer-facebook" title="Find us at facebook.com/2tallcom" >
-				Facebook
-			</a>
-			<a href="https://gmail.com" class="footer-social footer-gmail" title="Find us at facebook.com/2tallcom" >
-				Facebook
-			</a>
-			<a href="/contact"  class="footer-social footer-email" title="Send us an Email" >
-				Email Us
-			</a>
+		<div class="footer-social-wrapper">
+			<div class="footer-social-icons">
+				<a href="https://twitter.com/2tallcom"  class="footer-social footer-twitter" title="Follow us @2tallcom" >
+					Follow Us
+				</a>
+				<a href="https://facebook.com/2tallcom" class="footer-social footer-facebook" title="Find us at facebook.com/2tallcom" >
+					Facebook
+				</a>
+				<a href="https://gmail.com" class="footer-social footer-gmail" title="Find us at facebook.com/2tallcom" >
+					Facebook
+				</a>
+				<a href="/contact"  class="footer-social footer-email" title="Send us an Email" >
+					Email Us
+				</a>
+			</div>
 		</div>
-		<div class="medium-3 columns">
+		<div class="footer-contact-wrapper">
 			<h4 class="footer-heading">CONTACT US</h4>
 			<span class="footer-address">UK Landline:</span><br/>
 			<a href="tel:<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>" class="footer-tel"> <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></a>
@@ -49,9 +51,8 @@
 			<address class="footer-address">Arch 3 Palmerston Road</address>
 			<address class="footer-address">Aberdeen, AB11 5RE, UK</address>	
 		</div>
-		<div class="medium-2 columns">
+		<div class="footer-custserv-wrapper">
 			<h4 class="footer-heading">CUSTOMER SERVICE</h4>
-				<!--?php echo $this->getChildHtml() ?_-->
 			<ul class="footer-list">
 				<li>
 					<a href="http://www.2tall.com/ordering" title="Ordering">
@@ -71,7 +72,7 @@
 				 	Student Offer</a></li>
 			</ul>
 		</div>
-		<div class="medium-2 columns">
+		<div class="footer-about-wrapper">
 			<h4 class="footer-heading">ABOUT 2TALL.COM</h4>
 			<ul class="footer-list">
 				<li>
@@ -91,23 +92,18 @@
 					Terms &amp; Conditions</a></li>
 			</ul>
 		</div>
-		<div class="medium-3 columns">
+		<div class="footer-newsletter-wrapper">
 			<div class="footer-newsletter">
 				<?php echo $this->getChildHtml('footer.newsletter'); ?>
 			</div>
 			<p class="copyright">&nbsp;&#169; 2tall.com Retail Ltd</p>
 		</div>
-	</div>
+	</div> 
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="large-7 large-offset-5 columns">
 			<img class="card-image" src="<?php echo $this->getSkinUrl("images/cards/card_logos.png")?>" alt="PayPal"/>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns">
-			
-		</div>
-	</div>
+	</div> 
 </footer>
 
 <script>
@@ -127,3 +123,4 @@ jQuery(document).ready( function(){
 	});
 });
 </script>
+
