@@ -29,8 +29,12 @@ $button-background-color: $loud-color;
 /* Typography */
 
 $base-font-size: 15px;
-$base-font-family: "museo_slab500", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $base-font-weight: 400;
+$museo-slab:"museo-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$museo-rounded:"museo-sans-rounded", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$open-sans:"open-sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$gothic:"alternate-gothic-no-3-d", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$base-font-family: $museo-rounded;
 
 // Headings
 $heading-font-family: $base-font-family;

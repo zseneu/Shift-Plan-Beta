@@ -1335,12 +1335,12 @@
 body {
   color: #636363;
   font-size: 15px;
-  font-family: "museo_slab500", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "museo-sans-rounded", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.6; }
 
 h1, h2, h3, h4, h5, h6, li, li a, a, span, button, input {
-  font-family: "museo_slab500", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "museo-sans-rounded", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal; }
 
 .h1, .h2 {
@@ -1492,6 +1492,7 @@ button, .button {
   float: left; }
 
 .hp-callouts {
+  margin-top: -0.875rem !important;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -1510,6 +1511,7 @@ button, .button {
   padding-left: 0.4375rem !important;
   padding-right: 0.4375rem !important; }
   .hp-callout h2 {
+    font-family: "alternate-gothic-no-3-d", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     display: block;
     width: 100%;
     margin: 0;
@@ -1550,8 +1552,7 @@ button, .button {
   margin-top: 0;
   margin-bottom: 0;
   max-width: 62.5rem;
-  *zoom: 1;
-  max-width: 58.5rem !important; }
+  *zoom: 1; }
   .hp-slideshow:before, .hp-slideshow:after {
     content: " ";
     display: table; }
@@ -1559,6 +1560,12 @@ button, .button {
     clear: both; }
 
 .hp-slideshow-inner {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 100%;
+  float: left;
+  padding-left: 0.4375rem !important;
+  padding-right: 0.4375rem !important;
   margin-bottom: 0.4375rem;
   margin-top: 0.4375rem; }
 
@@ -1586,6 +1593,7 @@ button, .button {
   padding-right: 0.4375rem !important; }
 
 .hp-information {
+  margin-bottom: -0.875rem !important;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -2129,8 +2137,7 @@ header ul {
     display: block;
     padding: 0;
     margin: 0 -0.625rem;
-    *zoom: 1;
-    padding: 0 0.925rem 1.85rem !important; }
+    *zoom: 1; }
     .products-grid:before, .products-grid:after {
       content: " ";
       display: table; }
@@ -2784,7 +2791,7 @@ template\ajaxcart/catalog/product/view/addtocart.phtml */
   background-color: #e79639;
   border-color: #e79639;
   color: snow;
-  font-family: "museo_slab500", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+  font-family: "museo-sans-rounded", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
 
 .button.btn-cart:hover {
   background-color: #cccccc;

@@ -11,7 +11,7 @@ $include-print-styles: false;
 .products-grid { 
     @media (min-width: 767px) { // big screens
         @include block-grid(3);
-        padding:0 0.925rem 1.85rem !important;
+        // padding:0 0.925rem 1.85rem !important;
     }
     @media (max-width: 767px) { // small screens
         @include block-grid(2);

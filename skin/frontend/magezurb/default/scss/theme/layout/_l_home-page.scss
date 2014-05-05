@@ -16,12 +16,14 @@ $include-print-styles: false;
 
 
 .hp-callouts {
+    margin-top:-0.875rem !important ;
     @include grid-row();
 }
     
 .hp-callout {
     margin-bottom:0.4375rem;
     h2 {
+        font-family:$gothic;
         display:block;
         width:100%;
         margin:0;
@@ -57,10 +59,13 @@ $include-print-styles: false;
 }
 .hp-slideshow {
     @include grid-row();
-    max-width:58.5rem !important;
+    // max-width:58.5rem !important;
     
 }
 .hp-slideshow-inner {
+    @include grid-column(12);
+    padding-left: 0.4375rem !important;
+    padding-right: 0.4375rem !important;
     margin-bottom:0.4375rem;
     margin-top:0.4375rem;
 }
@@ -82,6 +87,7 @@ $include-print-styles: false;
 
 
 .hp-information {
+    margin-bottom:-0.875rem !important ;
     @include grid-row();  
 }
 .hp-information-inner {
