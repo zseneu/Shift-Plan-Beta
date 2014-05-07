@@ -2215,7 +2215,8 @@ header ul {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 41.66667%;
-    float: left; } }
+    float: left;
+    padding-left: 0 !important; } }
 @media (max-width: 767px) {
   .product-detail-column {
     padding-left: 0.9375rem;
@@ -2253,6 +2254,13 @@ header ul {
 @media (max-width: 767px) {
   .large-screen-product-info {
     display: none; } }
+
+.product-options dl.last {
+  margin-bottom: 0; }
+
+@media (max-width: 767px) {
+  .product-image {
+    text-align: center; } }
 
 @media (max-width: 767px) {
   .space-on-stack {
@@ -2577,6 +2585,9 @@ input[type="text"].subscribe-input, .html-select-wrapper select {
   opacity: 0.7;
   display: block; }
 
+.product-image img {
+  border: 1px solid #ccc; }
+
 /* product price
 // template\catalog/product/price.phtml
 */
@@ -2726,32 +2737,46 @@ h5.price {
 
 .product-options ul.options-list li {
   float: left;
-  display: block;
-  margin: 0 7px 10px 0;
-  height: 38px;
-  width: 58px; }
+  display: block; }
+  @media (min-width: 767px) {
+    .product-options ul.options-list li {
+      margin: 0 7px 10px 0;
+      height: 38px;
+      width: 58px; } }
+  @media (max-width: 767px) {
+    .product-options ul.options-list li {
+      margin: 0 7px 10px 0;
+      height: 40px;
+      width: 73px; } }
 
 .product-options ul.options-list li:last-of-type {
   margin-right: 0; }
 
 .product-options ul.options-list {
   padding: 0;
-  margin: 0;
+  margin: 10px 0 15px;
   width: 100%;
   overflow: hidden;
   margin-top: 10px;
   float: left; }
 
 .product-options ul.options-list li span {
-  font-size: 14px;
+  text-align: center;
   display: block;
   font-weight: 500;
   border-radius: 3px;
   -moz-border-radius: 3px;
-  border: 1px solid #B8B5B5;
-  height: 40px;
-  width: 60px;
-  text-align: center; }
+  border: 1px solid #B8B5B5; }
+  @media (min-width: 767px) {
+    .product-options ul.options-list li span {
+      font-size: 14px;
+      height: 40px;
+      width: 60px; } }
+  @media (max-width: 767px) {
+    .product-options ul.options-list li span {
+      font-size: 16px;
+      height: 45px;
+      width: 72px; } }
 
 .product-options ul.options-list .label {
   display: block;
@@ -2790,7 +2815,8 @@ span.onRadio {
   font-weight: normal; }
 
 .product-options ul.options-list li span.easy {
-  color: #cccccc; }
+  color: #ccc;
+  text-decoration: line-through; }
 
 /* uses third party template
 

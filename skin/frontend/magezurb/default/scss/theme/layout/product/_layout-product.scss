@@ -16,6 +16,7 @@ $include-print-styles: false;
 .product-detail-column{
 	@media (min-width: 767px) { // big screens
         @include grid-column(5); 
+        padding-left:0 !important;
     }
     @media (max-width: 767px) { // small screens
         @include grid-column(12); 
@@ -53,5 +54,14 @@ $include-print-styles: false;
     @media (max-width: 767px) { // big screens
         display:none
         
+    }
+}
+.product-options dl.last {
+    margin-bottom: 0;
+}
+
+.product-image {
+    @media (max-width: 767px) { 
+        text-align: center;
     }
 }

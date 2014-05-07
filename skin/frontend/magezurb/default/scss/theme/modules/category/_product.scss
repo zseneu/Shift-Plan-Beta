@@ -43,6 +43,10 @@
 
 }
 
+.product-image img {
+	border:1px solid #ccc;	
+}
+
 /* product price
 // template\catalog/product/price.phtml
 */ // SEE scss/theme/modules/product/_price.scss
