@@ -22,13 +22,18 @@
 .mg-ajaxcart-dialog a { text-decoration: none; }
 
 .mg-ajaxcart-dialog { display: none; position: relative; width: 410px; padding: 7px; }
-.mg-ajaxcart-dialog .product-info { float:left; text-align: left; }
+.mg-ajaxcart-dialog .product-info { float:left; text-align: center; }
 .mg-ajaxcart-dialog .product-info img {float:left; width: 80px; height: 80px; border: 1px solid #ddd; padding: 5px; }
-.mg-ajaxcart-dialog .product-info .msg { margin-left: 15px; width:70%; float:left;}
+.mg-ajaxcart-dialog .product-info .msg {
+	margin: 0 auto;
+	width: 65%;
+	text-align: left;
+	display: block;
+}
 .mg-ajaxcart-dialog .product-info .name { font-weight: bold; }
 
 .mg-ajaxcart-dialog .button-set { margin:10px 0 15px 0; float:left; width: 100%;}
 .mg-ajaxcart-dialog p {left;margin-top: 15px;text-align: center; width: 100%;}
 .mg-ajaxcart-dialog .button-set a span { display: block; background-color: #f18200; height: 19px; padding: 0 8px; text-align: center; border: 1px solid #de5400; color: #fff; }
 .mg-ajaxcart-dialog .continue-shop { float: left; }
-.mg-ajaxcart-dialog .goto-cart { float: right; }
+.mg-ajaxcart-dialog .goto-cart { /*float: right; */}

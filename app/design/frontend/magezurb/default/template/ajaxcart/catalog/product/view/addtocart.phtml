@@ -33,14 +33,14 @@
     </div>
     <div class="mg-ajaxcart-dialog">
     	<div class="product-info">
-    		<img />
+    		<!-- <img /> -->
     		<span class="msg"><?php echo $this->__('You have added ');?> <span class="name"></span> into shopping basket. </span>
     	</div>
     	<div class="button-set">
-	    	<button class="button normal-button continue-shop" href="#" class="continue-shop"><?php echo $this->__('Continue Shopping');?></button>
+	    	<!-- <button class="button normal-button continue-shop" href="#" class="continue-shop"><?php echo $this->__('Continue Shopping');?></button> -->
 	    	<button href="#" class="button normal-button goto-cart"><?php echo $this->__('Go To Shopping Basket');?></button>
 		</div>
-		<p>This dialog will close automatically in 10 seconds..</p>
+		<!-- <p>This dialog will close automatically in 10 seconds..</p> -->
 		<div style="clear:both;"></div>
     </div>
 <?php endif; ?>
@@ -86,13 +86,14 @@
 				$('.block-cart').replaceWith(data.sidebar);
 				$('.mg-ajaxcart-dialog .product-info .msg .name').html(data.name);
 				$('.mg-ajaxcart-dialog .product-info img').attr('src', data.thumbnail);
-				$.fancybox($('.mg-ajaxcart-dialog'),{
-					afterLoad: function(){
-						window.setTimeout(function() {
-					       $.fancybox.close();  // this will execute 1 second later
-					    }, 10000);
-					}
-				});
+				$('.mg-ajaxcart-dialog').show();
+				// $.fancybox($('.mg-ajaxcart-dialog'),{
+				// 	afterLoad: function(){
+				// 		window.setTimeout(function() {
+				// 	       $.fancybox.close();  // this will execute 1 second later
+				// 	    }, 10000);
+				// 	}
+				// });
 			}
 		};
 
