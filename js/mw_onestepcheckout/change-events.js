@@ -1,3 +1,4 @@
+
 function timeoutProcess()
 	{	
 		val=$MW_Onestepcheckout("#shipping-address-select").val();
@@ -310,30 +311,30 @@ $MW_Onestepcheckout(function(){
 		});
 	
 ///////// load ajax 
-		if(country_load()){		
-			$MW_Onestepcheckout('#billing\\:country_id').live("change", function(){
-				if(valid_vat())
-				{			
-					val=this.value;	//countryid									
-					checkVAT(val,$MW_Onestepcheckout('#billing\\:taxvat').val());				
-				}
+		// if(country_load()){		
+		// 	$MW_Onestepcheckout('#billing\\:country_id').live("change", function(){
+		// 		if(valid_vat())
+		// 		{			
+		// 			val=this.value;	//countryid									
+		// 			checkVAT(val,$MW_Onestepcheckout('#billing\\:taxvat').val());				
+		// 		}
 				
-				if(flag==1){						
-					updateShippingType();
-					change=0;	
-					}
-				else{
-					change=1;		
-				}				
-			});
+		// 		if(flag==1){						
+		// 			updateShippingType();
+		// 			change=0;	
+		// 			}
+		// 		else{
+		// 			change=1;		
+		// 		}				
+		// 	});
 			
-			$MW_Onestepcheckout('#shipping\\:country_id').live("change", function(){			
-					if(flag==0){
-					change=1;					
-					updateShippingType();
-					}
-			});
-		}
+		// 	$MW_Onestepcheckout('#shipping\\:country_id').live("change", function(){			
+		// 			if(flag==0){
+		// 			change=1;					
+		// 			updateShippingType();
+		// 			}
+		// 	});
+		// }
 		
 		
 

@@ -499,7 +499,7 @@
 	}
 	?>
 		<style type="text/css">
-		/*div.mw-osc-block-title,
+		div.mw-osc-block-title,
 		.mw-osc-title-login{
 			background-color: <?php echo $color;?>;
 			 background-color: <?php echo $color; ?>; background-image: linear-gradient(to bottom, <?php echo colourBrightness($color,0.9);?>, <?php echo colourBrightness($color,-0.7);?>); background-image: -webkit-linear-gradient(to bottom, <?php echo colourBrightness($color,0.9);?>, <?php echo colourBrightness($color,-0.7);?>); background-image:    -moz-linear-gradient(to bottom, <?php echo colourBrightness($color,0.9);?>, <?php echo colourBrightness($color,-0.7);?>);	background-image:     -ms-linear-gradient(to bottom, <?php echo colourBrightness($color,0.9);?>, <?php echo colourBrightness($color,-0.7);?>); background-image:      -o-linear-gradient(to bottom, <?php echo colourBrightness($color,0.9);?>, <?php echo colourBrightness($color,-0.7);?>);
@@ -533,7 +533,7 @@
 		}
 		@media screen and (max-width:320px){
 			#inline2{width: 100% !important;}
-		}*/
+		}
 		</style>
 	<?php endif;?>
 
@@ -603,14 +603,15 @@
 						<?php endif;?>
 						<?php endif;?>
 					</div>
-				</div>
-			</div><!-- end mw-osc-column-left -->
+				</div><!-- end mw-osc-column-left -->
+				<a href="#" class="next-first mw-bg-button">Continue</a>
+			</div>
 		</div>
 		<!-- shipping payment row -->
 		<div class="row second-row">
 			<!-- begin mw-osc-columns-2 -->
-			<div class="mw-osc-column-2">
-				<div id="mw-osc-column-container">
+			<div class=" mw-osc-column-2">
+				<div id=" mw-osc-column-container">
 				<?php if(!Mage::helper('onestepcheckout')->onlyProductDownloadable()):?>
 					<div class="mw-osc-column mw-osc-column-middle medium-6 columns">	
 						<div class="mw-osc-block">
@@ -621,6 +622,7 @@
 							</div>
 							<?php echo $this->getChildHtml('shipping_method');?>
 						</div>
+						<a href="#" class="open-first mw-bg-button">Back</a>
 					</div>
 				<?php endif?>						
 					<div class="mw-osc-column  mw-osc-column-right medium-6 columns" >
@@ -642,6 +644,7 @@
 									<?php echo $this->getChildHtml('payment');?>
 									</div>
 								</div>
+								<a href="#" class="open-third mw-bg-button">Continue</a>
 						</div>
 					</div>
 					<div class="clear_both">&nbsp;</div>
@@ -664,8 +667,9 @@
 						<?php echo $this->getChildHtml('review');?>
 					</div>
 				</div>
-			</div>
+				<a href="#" class="open-second mw-bg-button">Back</a>
 			<!-- end review -->
+			</div>
 		</div><!-- end row -->
 		<!-- end review -->
 	</form>
@@ -709,9 +713,40 @@
 		</div>
 	<?php endif?>
 	<script>
-	alert(jQuery);
-	jQuery(document).ready(function() {
-		alert(jQuery('.second-row'));
-		// jQuery('.second-row').hide();
-	});
+	(function($) { 
+		var firstRow = $('.first-row');
+		var secondRow = $('.second-row');
+		var thirdRow = $('.third-row');
+
+		// HIde second and third rows
+		$('.second-row, .third-row').hide();
+
+		$('.open-first').on('click', function(){
+			openFirst();
+		});
+		$('.open-second').on('click', function(){
+			openSecond();
+		});
+		$('.open-third').on('click', function(){
+			openThird();
+		});
+		
+
+		var openFirst = function(){
+			secondRow.hide();
+			thirdRow.hide();
+			firstRow.show();
+		}
+		var openSecond = function(){
+			firstRow.hide();
+			thirdRow.hide();
+			secondRow.show();
+		}
+		var openThird = function(){
+			firstRow.hide();
+			secondRow.hide();
+			thirdRow.show();
+		}
+
+	})(jQuery);
 	</script>
