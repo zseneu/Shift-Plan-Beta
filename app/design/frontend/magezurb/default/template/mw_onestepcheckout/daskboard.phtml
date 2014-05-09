@@ -714,39 +714,39 @@
 	<?php endif?>
 	<script>
 	(function($) { 
-		// var firstRow = $('.first-row');
-		// var secondRow = $('.second-row');
-		// var thirdRow = $('.third-row');
+		var firstRow = $('.first-row');
+		var secondRow = $('.second-row');
+		var thirdRow = $('.third-row');
 
-		// // HIde second and third rows
-		// $('.second-row, .third-row').hide();
+		// HIde second and third rows
+		$('.second-row, .third-row').hide();
 
-		// $('.open-first').on('click', function(){
-		// 	openFirst();
-		// });
-		// $('.open-second').on('click', function(){
-		// 	openSecond();
-		// });
-		// $('.open-third').on('click', function(){
-		// 	openThird();
-		// });
+		$('.open-first').on('click', function(){
+			openFirst();
+		});
+		$('.open-second').on('click', function(){
+			openSecond();
+		});
+		$('.open-third').on('click', function(){
+			openThird();
+		});
 		
 
-		// var openFirst = function(){
-		// 	secondRow.hide();
-		// 	thirdRow.hide();
-		// 	firstRow.show();
-		// }
-		// var openSecond = function(){
-		// 	firstRow.hide();
-		// 	thirdRow.hide();
-		// 	secondRow.show();
-		// }
-		// var openThird = function(){
-		// 	firstRow.hide();
-		// 	secondRow.hide();
-		// 	thirdRow.show();
-		// }
+		var openFirst = function(){
+			secondRow.hide();
+			thirdRow.hide();
+			firstRow.show();
+		}
+		var openSecond = function(){
+			firstRow.hide();
+			thirdRow.hide();
+			secondRow.show();
+		}
+		var openThird = function(){
+			firstRow.hide();
+			secondRow.hide();
+			thirdRow.show();
+		}
 
 	})(jQuery);
 	</script>
