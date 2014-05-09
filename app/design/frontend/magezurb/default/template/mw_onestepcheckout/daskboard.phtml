@@ -712,41 +712,41 @@
 		    <p id="loading_mask_loader" class="loader"><img alt="Loading..." src="<?php echo $this->getSkinUrl('mw_onestepcheckout/images/ajax-loader-tr.gif')?>"></p>
 		</div>
 	<?php endif?>
-	<script>
-	(function($) { // This is the comment of the commit
-		var firstRow = $('.first-row');
-		var secondRow = $('.second-row');
-		var thirdRow = $('.third-row');
+	<!-- script -->
+	// (function($) { // This is the comment of the commit
+	// 	var firstRow = $('.first-row');
+	// 	var secondRow = $('.second-row');
+	// 	var thirdRow = $('.third-row');
 
-		// HIde second and third rows
-		$('.second-row, .third-row').hide();
+	// 	// HIde second and third rows
+	// 	$('.second-row, .third-row').hide();
 
-		$('.open-first').on('click', function(){
-			openFirst();
-		});
-		$('.open-second').on('click', function(){
-			openSecond();
-		});
-		$('.open-third').on('click', function(){
-			openThird();
-		});
+	// 	$('.open-first').on('click', function(){
+	// 		openFirst();
+	// 	});
+	// 	$('.open-second').on('click', function(){
+	// 		openSecond();
+	// 	});
+	// 	$('.open-third').on('click', function(){
+	// 		openThird();
+	// 	});
 		
 
-		var openFirst = function(){
-			secondRow.hide();
-			thirdRow.hide();
-			firstRow.show();
-		}
-		var openSecond = function(){
-			firstRow.hide();
-			thirdRow.hide();
-			secondRow.show();
-		}
-		var openThird = function(){
-			firstRow.hide();
-			secondRow.hide();
-			thirdRow.show();
-		}
+	// 	var openFirst = function(){
+	// 		secondRow.hide();
+	// 		thirdRow.hide();
+	// 		firstRow.show();
+	// 	}
+	// 	var openSecond = function(){
+	// 		firstRow.hide();
+	// 		thirdRow.hide();
+	// 		secondRow.show();
+	// 	}
+	// 	var openThird = function(){
+	// 		firstRow.hide();
+	// 		secondRow.hide();
+	// 		thirdRow.show();
+	// 	}
 
-	})(jQuery);
-	</script>
+	// })(jQuery);
+	<!--/script -->
