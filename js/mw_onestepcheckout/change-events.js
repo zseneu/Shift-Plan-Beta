@@ -311,7 +311,7 @@ $MW_Onestepcheckout(function(){
 	
 ///////// load ajax 
 		if(country_load()){		
-			$MW_Onestepcheckout('#billing\\:country_id').live("change", function(){
+			$MW_Onestepcheckout(document).on("change", '#billing\\:country_id', function(){
 				if(valid_vat())
 				{			
 					val=this.value;	//countryid									
@@ -327,7 +327,7 @@ $MW_Onestepcheckout(function(){
 				}				
 			});
 			
-			$MW_Onestepcheckout('#shipping\\:country_id').live("change", function(){			
+			$MW_Onestepcheckout(document).on("change", '#shipping\\:country_id', function(){			
 					if(flag==0){
 					change=1;					
 					updateShippingType();
@@ -339,7 +339,7 @@ $MW_Onestepcheckout(function(){
 
 
 		if(region_load()){
-			$MW_Onestepcheckout('#billing\\:region_id').live("change", function(){ 
+			$MW_Onestepcheckout(document).on("change",'#billing\\:region_id', function(){ 
 						if(flag==1){							
 							updateShippingType();
 							change=0;	
@@ -348,7 +348,7 @@ $MW_Onestepcheckout(function(){
 							change=1;		
 						}				
 				});
-				$MW_Onestepcheckout('#shipping\\:region_id').live("change",function(){
+				$MW_Onestepcheckout(document).on("change",'#shipping\\:region_id',function(){
 						if(flag==0){
 						change=1;						
 						updateShippingType();
