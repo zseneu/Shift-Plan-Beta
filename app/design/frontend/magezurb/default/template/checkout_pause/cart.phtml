@@ -1,0 +1,133 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+?>
+<?php 
+$totalItemsInCart = Mage::helper('checkout/cart')->getItemsCount(); //total items in cart
+$totals = Mage::getSingleton('checkout/session')->getQuote()->getTotals(); //Total object
+$subtotal = '&pound;'.number_format($totals["subtotal"]->getValue(), 2); //Subtotal value
+$grandtotal = '&pound;'.number_format($totals["grand_total"]->getValue(), 2); //Grandtotal value
+
+if(isset($totals['shipping']) && $totals['shipping']->getValue()) {
+    $shipping = '&pound;'.number_format($totals['shipping']->getValue(), 2); //shipping value if applied
+} else {
+    $shipping = '';
+}
+
+if(isset($totals['discount']) && $totals['discount']->getValue()) {
+    $discount = '&pound;'.number_format($totals['discount']->getValue(), 2); //Discount value if applied
+} else {
+    $discount = '';
+}
+
+if(isset($totals['tax']) && $totals['tax']->getValue()) {
+    $tax = '&pound;'.number_format($totals['tax']->getValue(), 2); //Tax value if present
+} else {
+    $tax = '';
+}
+
+// echo $grandtotal;
+// echo $tax;
+// echo $discout;
+// echo $grandtotal;
+?>
+
+
+
+    <div class="row">
+        <div class="large-8 columns">    
+            <h1 class="cart-title"><?php echo $this->__('Your Basket') ?></h1>   
+            <?php foreach($this->getItems() as $_item): ?>
+                <div class="cart-item-wrapper">
+                    <?php echo $this->getItemHtml($_item) ?>
+                </div>
+            <?php endforeach ?>
+            <section class="cart-product-list-subtotal">
+                <p>to remove a product from the cart set total to 0</p>
+                <span class="subtotal"><?php echo $subtotal;?></span>
+            </section>
+        </div>
+        <section class="large-4 columns">
+            <h2 class="cart-title"><?php echo $this->__('YOUR ORDER SUMMARY') ?></h1>
+            <div class="row">
+                <heading class="large-12 columns">
+                    <p class="cart-subtotal">Products Total <span class="cart-subtotal-value"><?php echo $grandtotal;?></p> 
+                </heading>
+            </div>  
+            <section class="cart-summary-section">
+                    <?php if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
+            </section>
+            <div class="row">
+                <heading class="large-12 columns">
+                    <p class="cart-subtotal">Delivery <span class="cart-subtotal-value"><?php echo $shipping;?></p> 
+                </heading>
+            </div> 
+            <section class="cart-summary-section">
+                    <?php echo $this->getChildHtml('coupon') ?>
+            </section>
+            <div class="row">
+                <heading class="large-12 columns">
+                    <p class="cart-subtotal">Discount <span class="cart-subtotal-value"><?php echo $discount;?></p> 
+                </heading>
+            </div> 
+            <div class="row">
+                <heading class="large-12 columns">
+                    <p class="cart-subtotal tax">Price including VAT <span class="cart-subtotal-value"><?php echo $tax;?></p> 
+                </heading>
+            </div> 
+            <div class="row">
+                <heading class="large-12 columns">
+                    <p class="cart-subtotal">TOTAL YOU WILL PAY: <span class="cart-subtotal-value"><?php echo $grandtotal;?></p> 
+                </heading>
+            </div> 
+            <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+    
+                
+               
+
+                
+                   <?php //echo $this->getChildHtml('totals'); ?>
+                   <?php if(!$this->hasError()): ?>
+                    
+                        <?php foreach ($this->getMethods('methods') as $method): ?>
+                            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                                <?php echo $methodHtml; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?> 
+          
+         
+        </section>
+    </div>
+                
+                 
+ 

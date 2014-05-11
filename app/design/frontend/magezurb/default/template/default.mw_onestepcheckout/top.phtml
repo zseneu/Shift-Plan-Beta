@@ -1,0 +1,619 @@
+<?php if(Mage::getStoreConfig('onestepcheckout/config/enabled') && Mage::getSingleton('core/session')->getOs()!='change' ):?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('mw_onestepcheckout/css/jquery.fancybox-1.3.1.css');?>" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('mw_onestepcheckout/css/jquery-ui-1.8.custom.css');?>" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('mw_onestepcheckout/css/onestepcheckout.css');?>" media="all" />
+
+<script type="text/javascript">
+function logined()	
+{	
+	<?php	if(Mage::getSingleton('customer/session')->isLoggedIn()):?>
+	return 1;
+	<?php endif?>
+	return 0;
+}
+function hasaddress(){		////return true : customer has address
+	<?php if(count(Mage::getSingleton('customer/session')->getCustomer()->getAddresses())): ?>
+	return 1;
+	<?php endif?>
+	return 0;
+}
+
+<?php // check ajax load ?>
+function update_paymentmethods(){	//return true allow ajax update payment method, update payment method when change adess
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_paymentmethod')?>;
+}
+function update_shippingmethods(){	//return true allow ajax update payment method, update payment method when change adess
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_shippingmethod')?>;
+}
+function zip_load(){	//return true allow ajax zip
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_zipcode')?>;
+}
+function region_load(){	//return true allow ajax region
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_region')?>;
+}
+function city_load(){ 	//return true allow ajax city
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_city')?>;
+}
+function country_load(){	//return true allow ajax coutry
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_country')?>;
+}
+function payment_load(){	//return true allow ajax payment, update order review when change paymentmethod
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_payment')?>;
+}
+function shipping_load(){	//return true allow ajax payment, update order review when change paymentmethod
+	return <?php echo Mage::getStoreConfig('onestepcheckout/allow_ajax/ajax_shipping')?>;
+}
+function has_default_billing()
+{
+	<?php 
+	$customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultBilling();
+	if ($customerAddressId):
+	?>
+	return 1;
+	<?php endif?>
+	return 0;
+}
+
+function valid_vat()
+{
+	<?php if(Mage::getStoreConfig('onestepcheckout/config/valid_vat') && Mage::getStoreConfig('onestepcheckout/addfield/taxvat_show') !=""  ): ?>			
+				return true;			
+	<?php else: ?>		
+		return false;
+	<?php endif ?>
+}
+</script>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'mw_onestepcheckout/change-events.js';?>"></script>
+<script type="text/javascript">
+function removeProductId(product_id){	
+	if(confirm('<?php echo $this->__('Are you sure you would like to remove this item from the shopping cart?')?>')){		
+		removeProduct(product_id);	
+	}
+}
+function updateEmailmsg(val){	
+	$MW_Onestepcheckout('#message-box').html('');
+	$MW_Onestepcheckout('#loading-mask').css('display','block');
+	$MW_Onestepcheckout('.btn-checkout').attr('disabled','disabled');
+	var asyncdata;
+	$MW_Onestepcheckout.ajax({
+			async:false,
+			type: "POST",
+			url: "<?php echo Mage::getUrl('onestepcheckout/index/updateemailmsg')?>",			
+			data:"email="+val,
+			success: function(msg){
+				var error="<ul class=\"messages\"><li class=\"error-msg\"><ul><li>There is already a customer registered using this email address. Please login using this email address or enter a different email address.</li></ul></li></ul>";
+				
+				if(msg==0){
+					$MW_Onestepcheckout('#message-box').html(error);
+					$MW_Onestepcheckout('#billing\\:email').addClass('validation-failed');
+					
+					
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');
+					asyncdata='0';
+				}
+				else{
+					if(logined()!=1){
+					 $MW_Onestepcheckout('#message-box').html('');
+					}
+					$MW_Onestepcheckout('#billing\\:email').removeClass('validation-failed');
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');
+					asyncdata= '1';
+				}
+			}
+		});			
+	return asyncdata;	
+}
+function updateShippingType(str_value)
+{
+	$MW_Onestepcheckout('#message-box').html('');
+	$MW_Onestepcheckout('#loading-mask').css('display','block');
+	$MW_Onestepcheckout('.btn-checkout').attr('disabled','disabled');
+	<?php if(!Mage::helper('onestepcheckout')->onlyProductDownloadable()):?>
+		 if(update_shippingmethods())
+		 {
+			$MW_Onestepcheckout.ajax({
+			type: "POST",
+			url: "<?php echo Mage::getUrl('onestepcheckout/index/updateshippingtype')?>",		
+			data:$MW_Onestepcheckout("#onestep_form").serialize(),
+			success: function(msg){					
+					$MW_Onestepcheckout('#checkout-shipping-method-load').html(msg);
+					if($MW_Onestepcheckout('input[name=shipping_method]:checked').val() && shipping_load() ){
+						updateShippingMethod(); 
+					}
+				}
+			})
+		 }	
+	<?php endif?>	
+	 updatePaymentAssociated();
+}
+function updatePaymentAssociated()
+{
+	if(!update_paymentmethods())
+	{
+		if($MW_Onestepcheckout('input[name=payment\\[method\\]]:checked').val() && payment_load()){
+				updatePaymentMethod($MW_Onestepcheckout('input[name=payment\\[method\\]]:checked').val()); 
+		}
+	}
+else{
+		$MW_Onestepcheckout.ajax({
+		type: "POST",
+		url: "<?php echo Mage::getUrl('onestepcheckout/index/updatepaymenttype')?>",					
+		data:$MW_Onestepcheckout("#onestep_form").serialize(),
+		success: function(msg){
+					$MW_Onestepcheckout('#checkout-payment-method-load').html(msg);
+					if($MW_Onestepcheckout('input[name=payment\\[method\\]]:checked').val() && payment_load()){
+						updatePaymentMethod($MW_Onestepcheckout('input[name=payment\\[method\\]]:checked').val());
+					}
+					
+				}
+			});	
+	}
+}
+
+function updatePaymentType()
+{
+	$MW_Onestepcheckout.ajax({
+		type: "POST",
+		url: "<?php echo Mage::getUrl('onestepcheckout/index/updatepaymenttype')?>",					
+		data:$MW_Onestepcheckout("#onestep_form").serialize(),
+		success: function(msg){
+					$MW_Onestepcheckout('#checkout-payment-method-load').html(msg);
+					if($MW_Onestepcheckout('input[name=payment\\[method\\]]:checked').val() && payment_load()){
+						updatePaymentMethod($MW_Onestepcheckout('input[name=payment\\[method\\]]:checked').val());
+					}
+					
+				}
+			});	
+}
+
+function validateVAT(contrycode,vatnumber)
+{	
+	if($MW_Onestepcheckout.trim(vatnumber)!="")
+	{	  
+		var res="";
+		$MW_Onestepcheckout('#message-box').html('');
+		$MW_Onestepcheckout('#loading-mask').css('display','block');
+		$MW_Onestepcheckout('.btn-checkout').attr('disabled','disabled');
+		$MW_Onestepcheckout.ajax({
+			url: '<?php echo Mage::getBaseUrl()?>onestepcheckout/index/getvat/countrycode/'+contrycode+'/vatnumber/'+vatnumber, 
+			type: 'get',
+			success: function(data){ 	
+			var xml = data,
+		    xmlDoc = $MW_Onestepcheckout.parseXML( xml ),
+		    $MW_Onestepcheckoutxml =$MW_Onestepcheckout( xmlDoc ),
+		    $MW_Onestepcheckouttitle = $MW_Onestepcheckoutxml.find("valid" );
+			result = $MW_Onestepcheckouttitle.text();							
+				if(result=="true")
+				{		
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text_error")) { 	
+						$MW_Onestepcheckout("#mw_osc_vlvat_text_error").remove();	
+						}
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text"))
+						 { 	
+							$MW_Onestepcheckout("#mw_osc_vlvat_text").remove();	
+						}		
+					$MW_Onestepcheckout("#mw_osc_taxvat label").append(" <b id='mw_osc_vlvat_text'>(<span style='color:green; font-weight:bold'> <?php echo  $this->__('Verified');?> </span>) </b>");
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');				
+				}
+				else
+				{
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text_error")) { 	
+					$MW_Onestepcheckout("#mw_osc_vlvat_text_error").remove();	
+					}
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text")) { 	
+						$MW_Onestepcheckout("#mw_osc_vlvat_text").remove();	
+						}	
+					$MW_Onestepcheckout("#mw_osc_taxvat label").append(" <b id='mw_osc_vlvat_text_error'> (<span style='color:red; font-weight:bold' > <?php echo  $this->__('Not Verified');?> </span>)</b>");
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');				
+				}
+	
+			},
+			error: function()
+			{	
+				if($MW_Onestepcheckout("#mw_osc_vlvat_text_error")) { 	
+					$MW_Onestepcheckout("#mw_osc_vlvat_text_error").remove();	
+					}
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text")) { 	
+						$MW_Onestepcheckout("#mw_osc_vlvat_text").remove();	
+						}	
+					$MW_Onestepcheckout("#mw_osc_taxvat label").append(" <b id='mw_osc_vlvat_text_error'> (<span style='color:red; font-weight:bold' > <?php echo  $this->__('Not Verified');?> </span>)</b>");
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');
+			}
+		});		
+	}
+}
+
+function validateVATisvat(countrycode,vatnumber)
+{
+	if($MW_Onestepcheckout.trim(vatnumber)!="")
+	{
+		var urlreal ="http://isvat.appspot.com/"+countrycode+"/"+vatnumber+"/?callback=?"
+		$MW_Onestepcheckout.getJSON(urlreal,function(data)
+			{				
+				if(data==true)
+				{	
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text_error")) { 	
+						$MW_Onestepcheckout("#mw_osc_vlvat_text_error").remove();	
+						}
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text"))
+						 { 	
+							$MW_Onestepcheckout("#mw_osc_vlvat_text").remove();	
+						}		
+					$MW_Onestepcheckout("#mw_osc_taxvat label").append(" <div id='mw_osc_vlvat_text'>(<span style='color:green; font-weight:bold'> <?php echo  $this->__('Verified');?> </span>) </div>");
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');				
+				}
+				else
+				{					
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text_error")) { 	
+					$MW_Onestepcheckout("#mw_osc_vlvat_text_error").remove();	
+					}
+					if($MW_Onestepcheckout("#mw_osc_vlvat_text")) { 	
+						$MW_Onestepcheckout("#mw_osc_vlvat_text").remove();	
+						}	
+					$MW_Onestepcheckout("#mw_osc_taxvat label").append(" <div id='mw_osc_vlvat_text_error'> (<span style='color:red; font-weight:bold' > <?php echo  $this->__('Not Verified');?> </span>)</div>");
+					$MW_Onestepcheckout('#loading-mask').css('display','none');
+					$MW_Onestepcheckout('.btn-checkout').removeAttr('disabled');
+				}
+		});
+	}
+}
+
+function checkVAT(countrycode,vatnumber)
+{	
+		if($MW_Onestepcheckout("#mw_osc_vlvat_text_error")){ 	
+			$MW_Onestepcheckout("#mw_osc_vlvat_text_error").remove();	
+			}
+		if($MW_Onestepcheckout("#mw_osc_vlvat_text")){ 	
+				$MW_Onestepcheckout("#mw_osc_vlvat_text").remove();	
+			 }	
+		var kt = 0;			
+		var european_union_countries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GB', 'GR', 'HU', 'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK'];	
+		for(i=0; i<european_union_countries.length; i++)
+			{				
+				if(european_union_countries[i]==countrycode){									
+						kt=1;
+						break;	
+				}
+			}	
+		if(kt==1){					
+			validateVAT(countrycode,vatnumber);
+		}
+}
+</script>
+
+<script type="text/javascript">
+			var ip="<?php echo  getenv( "REMOTE_ADDR" )?>"; //this line do error javascript, this code need wrapper in " code.."
+<?php  if(Mage::getStoreConfig('onestepcheckout/deliverydate/allow_options')):?>
+
+//////////////////////////////For deliverydate//////////////////////
+
+			var timezone_server="<?php echo Mage::registry('Timezoneserver')?>";
+			var timezone_client="<?php echo Mage::registry('Timezoneclient') ?>";
+			var offset_timezone="<?php echo Mage::registry('Timezoneserver')-Mage::registry('Timezoneclient') ?>";
+		
+			var weekendDays="<?php echo Mage::getStoreConfig("onestepcheckout/deliverydate/weekend")?>";	
+				weekendDays=weekendDays.split(","); //is weekend with 0=sunday,1=monday,....,6=saturday;
+			
+			var disabledDays="<?php echo $this->getNationaldays()?>";
+			disabledDays=disabledDays.split(",");
+			var enableDays="<?php echo $this->getAdditionaldays()?>";
+			enableDays=enableDays.split(",");
+			var formatdate="<?php echo Mage::getStoreConfig("onestepcheckout/deliverydate/formatdate")?>";
+			
+			var formatdatepicker='';
+			if(formatdate=='d/m/Y'){
+				formatdatepicker='dd/mm/yy';
+			}else if(formatdate=='m/d/Y'){
+				formatdatepicker='mm/dd/yy';
+			}
+			
+			var isnowday="<?php echo date(Mage::getStoreConfig("onestepcheckout/deliverydate/formatdate"), Mage::getModel('core/date')->timestamp(time()))?>";	
+			var isnowtime="<?php echo date("G:i", Mage::getModel('core/date')->timestamp(time()))?>";	
+			var timerange=new Array();//save time range when select time ranger
+			var settimer=new Array();//save time valid when select time ranger and ajax process 
+			var dayselected=dayselect("<?php echo date('m/d/Y', Mage::getModel('core/date')->timestamp(time()))?>");
+			
+			function ltrim(sString)
+			{
+				while (sString.substring(0,1)==" ")
+					{
+					sString = sString.substring(1, sString.length);
+					}
+				return sString;
+			}
+			function rtrim(sString)
+			{
+				while (sString.substring(sString.length-1, sString.length) ==" ")
+					{
+					sString = sString.substring(0,sString.length-1);
+					}
+				return sString;
+			}
+			function trim(sString)
+			{
+				sString = ltrim(sString);
+				return rtrim(sString);
+			}
+			
+			function ctime(formattime,time){//formattime -> true: convert time to 12 ampm, false: 24
+				time=trim(time);
+				if(formattime){
+					var timer=time.split(":");
+					newtime=(parseFloat(timer[0]/12)<1)?timer[0]+":"+timer[1]+" am":((timer[0]%12)==0)?timer[0]+":"+timer[1]+" pm":(timer[0]%12)+":"+timer[1]+" pm";
+					return newtime;
+				}
+				else{
+					var splitampm=time.split(" ");
+					var splittimer=splitampm[0].split(":");
+					if(splitampm[1]=="am" || splitampm[1]=="a" || splitampm[1]==null){
+						if(splittimer[0]=="12")
+							return "00:"+splittimer[1];
+						else
+							return splittimer[0]+":"+splittimer[1];
+					}
+					else{
+						if(splittimer[0]=="12")
+							return "12:"+splittimer[1];
+						else
+							return (parseFloat(splittimer[0])+12)+":"+splittimer[1];
+					}
+				}
+				
+			}
+			
+			function counthtom(chour){		
+					splithour=chour.split(":");					
+					return parseFloat(splithour[0])*60+parseFloat(splithour[1]);
+			}
+
+			function convertdate(m,d,y){
+				m=(m>9)?m:'0'+m;
+				d=(d>9)?d:'0'+d;
+				if(formatdate=='m/d/Y'){	
+						return m+"/"+d+"/"+y;
+				}
+				else if(formatdate='d/m/Y'){
+					return d+"/"+m+"/"+y;
+				}
+			}
+			function dayselect(date){
+				var isday=new Date(date);
+				while(1){					
+					var m = isday.getMonth(), d = isday.getDate(), y = isday.getFullYear(); 
+					if($MW_Onestepcheckout.inArray(isday.getDay()+"",weekendDays)<0){
+						if($MW_Onestepcheckout.inArray((m+1)+"/"+d+"/"+y,disabledDays)<0)   {						
+							return convertdate(m+1,d,y);
+						}
+						else{
+							isday=new Date(y,m,d+1);
+						}
+					}
+					else{
+						if($MW_Onestepcheckout.inArray((m+1)+"/"+d+"/"+y,enableDays)<0){
+							isday=new Date(y,m,d+1);
+						}
+						else{							
+							return convertdate(m+1,d,y);
+						}
+					}
+				}
+			}
+			function notWeekends(date){		//true if not weekend
+				var isWeekend=date.getDay();
+				for (i = 0; i < weekendDays.length; i++) {
+					if($MW_Onestepcheckout.inArray(isWeekend+"",weekendDays) !=-1){
+						return false;	//false if is weekend
+					}
+				}
+				return true;	//true if not weekend
+			}
+			
+			function nationalDays(date) {
+				var m = date.getMonth(), d = date.getDate(), y = date.getFullYear(); 				
+				for (i = 0; i < disabledDays.length; i++) {
+					if($MW_Onestepcheckout.inArray((m+1) + '/' + d + '/' + y,disabledDays) != -1) {
+					return [false]; 
+					}
+				}				
+				return [true]; 
+			}
+			
+			function additionalDays(date){
+				var m = date.getMonth(), d = date.getDate(), y = date.getFullYear(); 				 
+				for (i = 0; i < enableDays.length; i++) {
+					if($MW_Onestepcheckout.inArray((m+1) + '/' + d + '/' + y,enableDays) != -1) {	
+					return [true]; 
+					}
+				}
+				return [false]; 				
+			}
+			function noWeekendsOrHolidays(date) { 
+				var notWeekend = notWeekends(date);
+				return notWeekend ? nationalDays(date) : additionalDays(date);
+			}
+
+			function updatetimepicker(){
+				if(timerange.length!=0){						
+						isday=($MW_Onestepcheckout('#onestepcheckout_date').val()==isnowday)?1:0;
+						$MW_Onestepcheckout.ajax({
+							type: "POST",
+							url: "<?php echo Mage::getUrl('onestepcheckout/index/updatetimepicker')?>",
+							data: "stime="+timerange[0]+"&"+"etime="+timerange[1]+"&"+"now="+isday, 
+							success: function(msg){
+									if(msg){
+										settimer=msg.split(":");
+										edittimepicker(true);
+									}
+									else{										
+										$MW_Onestepcheckout('#changedate').html("<span style='width:104px;margin-right:35px;'>time off this day</span>");
+									}
+							}
+						});
+				}
+				else
+					edittimepicker(false);
+			}
+			
+			function edittimepicker(hastimerange){
+				
+				$MW_Onestepcheckout('#date').html($MW_Onestepcheckout('#onestepcheckout_date').val());
+				if(hastimerange){	
+					
+					hourtime=(parseFloat(settimer[0]/12)<1)?settimer[0]+":"+settimer[1]+" am":(settimer[0]%12)+":"+settimer[1]+" pm";
+					
+					var htmlstr="<div class='blockdate'><span>Time: </span><span id='clock'>"+hourtime+"</span></div>";
+						htmlstr=htmlstr+"<input type='hidden' name='onestepcheckout_time' id='onestepcheckout_time' value='"+hourtime+"'/>";
+			
+				}
+				else{
+					var htmlstr="<div class='blockdate'><span>Time: </span><span id='clock'><?php echo date("h:i a", Mage::getModel("core/date")->timestamp(time()))?></span></div>";
+						htmlstr=htmlstr+"<input type='hidden' name='onestepcheckout_time' id='onestepcheckout_time' value='<?php echo date("h:i a", Mage::getModel("core/date")->timestamp(time()))?>'/>";
+				
+				}
+				$MW_Onestepcheckout('#changedate').html(htmlstr);
+				var path_clock="<?php echo $this->getSkinUrl('mw_onestepcheckout/images/clock.png');?>";
+				<?php
+				 $ie6 = "MSIE 6.0";  
+				 $browser = $_SERVER['HTTP_USER_AGENT']; 
+				?>
+				<?php if(strstr($browser,$ie6)):?>
+					path_clock="<?php echo $this->getSkinUrl('mw_onestepcheckout/images/clock.gif');?>";
+				<?php endif?>	
+				
+				if($MW_Onestepcheckout("#onestepcheckout_date").val()==isnowday){	
+					$MW_Onestepcheckout('#onestepcheckout_time').timepicker({
+							showAnim: 'fadeIn',
+							duration:'fast',
+							showOn: 'button',
+							stepMinute: 15,
+							minuteGrid: 15,
+							ampm: true,
+							minute: <?php echo date("i", Mage::getModel('core/date')->timestamp(time()));?>,
+							hourMin: <?php echo date("G", Mage::getModel('core/date')->timestamp(time()));?>,							
+							buttonImage: path_clock, 
+							buttonImageOnly: true
+					});						
+				}
+				else{
+					$MW_Onestepcheckout('#onestepcheckout_time').timepicker({						
+						showAnim: 'fadeIn',
+						duration:'fast',
+						showOn: 'button',
+						stepMinute: 15,
+						minuteGrid: 15,
+						ampm: true,
+						hour: <?php echo date("G", Mage::getModel('core/date')->timestamp(time()));?>,
+						minute: <?php echo date("i", Mage::getModel('core/date')->timestamp(time()));?>,	
+						buttonImage: path_clock,
+						buttonImageOnly: true
+					});
+				}
+				$MW_Onestepcheckout("#onestepcheckout_time").change(function(){
+					if($MW_Onestepcheckout("#onestepcheckout_date").val()!=isnowday){
+						if(settimer.length){ 
+								countmin=counthtom(ctime(false,$MW_Onestepcheckout('#onestepcheckout_time').val()));
+								timestart=settimer[0]+":"+settimer[1];
+	
+								if(counthtom(timestart)> countmin)
+									$MW_Onestepcheckout('#clock').html(ctime(true,timestart));
+								else {
+									if(counthtom(timerange[1])< countmin)
+										$MW_Onestepcheckout('#clock').html(ctime(true,timerange[1]));
+									else
+										$MW_Onestepcheckout('#clock').html($MW_Onestepcheckout('#onestepcheckout_time').val());
+								}
+						}
+						else{							
+							$MW_Onestepcheckout('#clock').html($MW_Onestepcheckout('#onestepcheckout_time').val());
+						}
+					}
+					else{
+						countmin=counthtom(ctime(false,$MW_Onestepcheckout('#onestepcheckout_time').val()));
+						timestart=isnowtime;
+							if(counthtom(timestart)> countmin)
+								$MW_Onestepcheckout('#clock').html(ctime(true,timestart));
+							else
+								$MW_Onestepcheckout('#clock').html($MW_Onestepcheckout('#onestepcheckout_time').val());						
+					}						
+				});	
+			}
+			
+			$MW_Onestepcheckout(function(){			
+				$MW_Onestepcheckout("#date").html(dayselected);
+				$MW_Onestepcheckout("#onestepcheckout_date").attr("value",dayselected);
+				
+				$MW_Onestepcheckout('#onestepcheckout_date').datepicker({
+					showAnim: 'fadeIn',
+					duration:'fast',
+					showOn: 'button',
+					buttonImage: "<?php echo $this->getSkinUrl('mw_onestepcheckout/images/grid-cal.gif');?>",					
+					<?php if(Mage::getStoreConfig("onestepcheckout/deliverydate/rangeday")):?>
+					maxDate:'+<?php echo Mage::getStoreConfig("onestepcheckout/deliverydate/rangeday")?>w',
+					<?php endif?>
+					minDate:'-0d',
+					buttonImageOnly: true,					
+					dateFormat: formatdatepicker,
+					beforeShowDay: noWeekendsOrHolidays					
+				});
+				edittimepicker(false);		
+				
+				$MW_Onestepcheckout("#delivery-timerange").change(function(){					
+					strtime=this.value;
+					if(strtime)
+					timerange=strtime.split("-");
+					else
+					timerange=new Array();
+					updatetimepicker();
+				});
+				
+				$MW_Onestepcheckout("#onestepcheckout_date").change(function(){	
+					$MW_Onestepcheckout('#date').html($MW_Onestepcheckout('#onestepcheckout_date').val());
+					updatetimepicker();
+				});
+	
+});		
+/////////////////////End deliverydate/////////////////////				
+<?php endif?>
+
+
+</script>
+<?php if(Mage::getStoreConfig('onestepcheckout/config/enable_geoip')):
+					if(Mage::getSingleton('core/session')->getCity())
+					$cityval= Mage::getSingleton('core/session')->getCity();
+					else 
+				   $cityval = Mage::registry('City');
+				   
+				   if(Mage::getSingleton('core/session')->getRegionId())
+					$regionidval= Mage::getSingleton('core/session')->getRegionId();
+					else 
+					$regionidval = Mage::registry("Regionid");
+					
+					if(Mage::getSingleton('core/session')->getRegion())
+					$regionval= Mage::getSingleton('core/session')->getRegion();
+					else 
+					$regionval = Mage::registry('Regionname');	
+					
+					if(Mage::getSingleton('core/session')->getPostcode())
+					$postcodeval= Mage::getSingleton('core/session')->getPostcode();
+					else 
+					$postcodeval = Mage::registry('Zipcode');				
+?>
+<script type="text/javascript">
+						//geoip for form
+						$MW_Onestepcheckout(function(){
+							$MW_Onestepcheckout('#billing\\:postcode').attr("value","<?php echo $postcodeval;?>");
+							$MW_Onestepcheckout('#billing\\:city').attr("value","<?php echo $cityval;?>");
+							$MW_Onestepcheckout('#billing\\:region').attr("value","<?php echo $regionval; ?>");
+							if ($MW_Onestepcheckout("#billing\\:region_id option:selected").length){
+					   		$MW_Onestepcheckout("#billing\\:region_id option[value='<?php echo $regionidval; ?>']").attr('selected', 'selected');
+							}
+});
+</script>
+<?php endif?>
+<?php endif?>

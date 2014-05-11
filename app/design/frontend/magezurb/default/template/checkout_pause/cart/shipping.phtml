@@ -1,0 +1,86 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * @see Mage_Checkout_Block_Cart_Shipping
+ */
+?>
+
+    <!-- <h2 class="cart-widget-title">Delivery</h2> -->
+
+    <div class="row">
+        <div class="large-4 columns">
+            </label>Post Code</label>
+            <form action="<?php echo $this->getUrl('checkout/cart/estimatePost') ?>" method="post" id="shipping-zip-form">
+            <!-- <label for="postcode"<?php if ($this->isZipCodeRequired()) echo ' class="required"' ?>><?php if ($this->isZipCodeRequired()) echo '<em>*</em>' ?><?php echo $this->__('Zip/Postal Code') ?></label> -->
+            <input class="input-text validate-postcode<?php if ($this->isZipCodeRequired()):?> required-entry<?php endif;?>" type="text" id="postcode" name="estimate_postcode" value="<?php echo $this->htmlEscape($this->getEstimatePostcode()) ?>" />
+        </div>
+        <div class="large-8 columns">
+            <label>Country</label>
+             <!-- <label for="country"><?php echo $this->__('Country') ?></label> -->
+            <div class="html-select-wrapper">
+                <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect($this->getEstimateCountryId()) ?>
+            </div>
+            <button type="button" class="button subscribe-button" id="getquote" title="<?php echo $this->__('Update Delivery Quote') ?>" onclick="coShippingMethodForm.submit()"><?php echo $this->__('Update') ?></button>
+        </div>
+    </div>
+    
+        </form>
+   
+   
+        <script type="text/javascript">
+        //<![CDATA[
+            new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
+        //]]>
+        </script>
+
+     
+        <script type="text/javascript">
+        //<![CDATA[
+            var coShippingMethodForm = new VarienForm('shipping-zip-form');
+            var countriesWithOptionalZip = <?php echo $this->helper('directory')->getCountriesWithOptionalZip(true) ?>;
+
+            coShippingMethodForm.submit = function () {
+                var country = $F('country');
+                var optionalZip = false;
+
+                for (i=0; i < countriesWithOptionalZip.length; i++) {
+                    if (countriesWithOptionalZip[i] == country) {
+                        optionalZip = true;
+                    }
+                }
+                if (optionalZip) {
+                    $('postcode').removeClassName('required-entry');
+                }
+                else {
+                    $('postcode').addClassName('required-entry');
+                }
+                return VarienForm.prototype.submit.bind(coShippingMethodForm)();
+            }
+        //]]>
+        </script>
+

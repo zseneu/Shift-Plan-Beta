@@ -24,11 +24,25 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-title">
-    <h1><?php echo $this->__('Shopping Cart is Empty') ?></h1>
-</div>
-<div class="cart-empty">
-    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-    <p><?php echo $this->__('You have no items in your shopping cart.') ?></p>
-    <p><?php echo $this->__('Click <a href="%s">here</a> to continue shopping.', $this->getContinueShoppingUrl()) ?></p>
-</div>
+<?php
+/**
+ * Shopping cart totals template
+ *
+ * @see Mage_Checkout_Block_Cart_Totals
+ * @var $this Mage_Checkout_Block_Cart_Totals
+ */
+?>
+<?php if ($this->canApplyMsrp()): ?>
+    <div class="cart-msrp-totals"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></div>
+<?php else: ?>
+    <table id="shopping-cart-totals-table">
+        <col />
+        <col width="1" />
+        <tfoot>
+            <?php echo $this->renderTotals('footer'); ?>
+        </tfoot>
+        <tbody>
+            <?php echo $this->renderTotals(); ?>
+        </tbody>
+    </table>
+<?php endif; ?>
