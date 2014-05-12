@@ -84,3 +84,54 @@ select{
 	margin-bottom:15px;
 }
 
+.fields, .field {
+	display: block;
+	float: left;
+	width: 100%;
+	label {
+		display:block; 
+		width:30%;
+		float: left;
+
+	}
+	.input-box  {
+		float:left;
+		width:70%;
+	}
+}
+
+#onestep_form {
+	fieldset {
+		margin:0;
+		border:0;
+		padding:0;
+		border:none;
+	}
+	ul {
+		list-style: none;
+		border:0;
+		padding:0;
+		margin:0;
+	}
+	.widthfull {
+		.wide:nth-of-type(2) .input-box{
+			margin-left:30%;
+		}
+	}
+}
+
+.mwbg-progress-bar{
+	a {
+		color:#282828;
+		background:#ccc;
+		text-align: center;
+		padding:3px 5px;
+		display:block;
+		width:100%;
+		border-bottom:4px solid #828282;
+	}
+	a.active {
+		background: #fff;
+		border-bottom:4px solid orange;
+	}
+}
