@@ -735,9 +735,7 @@
 		var secondRow = '.second-row';
 		var thirdRow = '.third-row';
 
-		var rowArray = [
-			firstRow, secondRow, thirdRow
-		];
+		var rowArray = "firstRow, secondRow, thirdRow";
 		// alert(rowArray);
 
 
@@ -750,7 +748,7 @@
 			for (row in rowArray){
 				// alert(rowArray[row]);
 				// alert(row); // WHAT THE FUCK IS THIS! // This comment reminds me to make some money
-				alert(E);
+				alert(row);
 				if (row = e){
 					showRow(e);
 				}
@@ -770,6 +768,24 @@
 			
 		}
 
+        //    _/
+        // Assigns a document wide click event to the passed DOM object identifier
+        // As 
+        var setUpClickHandlers = function(inputArray){
+        	var inputArray = inputArray;
+        	for (item in inputArray){ 
+	        	var clickThis =  inputArray[item];
+				$(document).on('click', clickThis , processEvent(clickThis, inputArray) );
+			}
+			// $(document).on('click', firstRow , processEvent(firstRow, rowArray) );
+        } // 
+        setUpClickHandlers(rowArray); 
+        
+
+		// https://stackoverflow.com/posts/23607266/edit
+		// Create Event Listeners
+
+
 		var isValid = function(){
 			return true;
 		} 
@@ -780,57 +796,5 @@
 				openRow(e);
         	};
         }
-        var 
-
-        // Assigns a document wide click event to the passed DOM object identifier
-        // As 
-        var setUpClickHandlers = function(inputArray){
-        	var inputArray = inputArray;
-        	for (item in inputArray){ 
-	        	var clickThis =  inputArray[item];
-				$(document).on('click', ClickThis , processEvent(ClickThis, inputArray) );
-			}
-			// $(document).on('click', firstRow , processEvent(firstRow, rowArray) );
-        } // 
-        setUpClickHandlers(); 
-        
-
-		// https://stackoverflow.com/posts/23607266/edit
-		// Create Event Listeners
-
-
-
-
-
-
-
-
-
-
-
-		
-		$('.open-second').on('click', function(){
-			openSecond();
-		});
-		$('.open-third').on('click', function(){
-			openThird();
-		});
-
-		var openFirst = function(){
-			secondRow.hide();
-			thirdRow.hide();
-			firstRow.show();
-		}
-		var openSecond = function(){
-			firstRow.hide();
-			thirdRow.hide();
-			secondRow.show();
-		}
-		var openThird = function(){
-			firstRow.hide();
-			secondRow.hide();
-			thirdRow.show();
-		}
-
 	})(jQuery);
 	</script>
