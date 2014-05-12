@@ -542,9 +542,22 @@
 		<hidden value="Please enter your details below to complete your purchase."></hidden>
 		<!-- message row -->
 		<div class="row">
-			<div class="large-12 columns">
+			<div class="large-4 columns">
 				<h1 class="mw-osc-page-tittle"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_title'))?></h1>
 				<p class="mw-osc-page-content"><?php echo $this->__(Mage::getStoreConfig('onestepcheckout/config/page_content'))?></p>
+			</div>
+			<div class="large-8 columns">
+				<div class="row mwbg-progress-bar">
+					<div class="medium-4 columns">
+						<a href="#" class="mw-bg-button active">Address</a>
+					</div>
+					<div class="medium-4 columns">
+						<a href="#" class="open-first mw-bg-button">Shipping and Payment</a>
+					</div>
+					<div class="medium-4 columns">
+						<a href="#" class="open-first mw-bg-button">Review</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- end message row -->
@@ -582,9 +595,10 @@
 						<!-- </div> -->
 						<!-- <div class="mw-osc-block-content"> -->
 							<!-- <div> -->
-								 <?php echo $this->getChildHtml('billing');?> 
+				<?php echo $this->getChildHtml('billing');?> 
 							<!-- </div>							 -->
 						<!-- </div> -->
+				<a href="#" class="open-second mw-bg-button">Continue</a>
 			</div>
 			<div class="large-6 columns">
 						<?php if(!Mage::helper('onestepcheckout')->onlyProductDownloadable()):?>
@@ -605,7 +619,6 @@
 						<?php endif;?>
 					</div>
 				</div><!-- end mw-osc-column-left -->
-				<a href="#" class="next-first mw-bg-button">Continue</a>
 			</div>
 		</div>
 		<!-- shipping payment row -->
@@ -648,7 +661,6 @@
 								<a href="#" class="open-third mw-bg-button">Continue</a>
 						</div>
 					</div>
-					<div class="clear_both">&nbsp;</div>
 				</div>
 			</div>
 			<!-- end mw-osc-columns-2 -->
@@ -718,23 +730,78 @@
 	This is the meta comment. ctrl-f shortcut 717#metacomment
 	**/
 	(function($) { 
-		var firstRow = $('.first-row');
-		var secondRow = $('.second-row');
-		var thirdRow = $('.third-row');
+		// should this look like a regular object?
+		var firstRow = '.first-row';
+		var secondRow = '.second-row';
+		var thirdRow = '.third-row';
 
-		// HIde second and third rows
-		// $('.second-row, .third-row').hide();
+		var rowArray = [
+			firstRow, secondRow, thirdRow
+		];
+		// alert(rowArray);
 
-		// $('.open-first').on('click', function(){
-		// 	openFirst();
-		// });
-		// $('.open-second').on('click', function(){
-		// 	openSecond();
-		// });
-		// $('.open-third').on('click', function(){
-		// 	openThird();
-		// });
+		var isValid = function(){
+			return true;
+		} 
+
+		//Hide second and third rows
+		$('.second-row, .third-row').hide();
+
+		var processEvent = function(e){ // currently set to one
+			var E = e;  // Cache ID of calling object 
+			for (row in rowArray){
+				alert(row);
+				alert(E);
+				if (row = e){
+					showRow(e);
+				}
+				else {
+					hideRow(row);
+				}
+			}
+			// hideRow(secondRow); //secondRow.hide();
+			// hideRow(thirdRow); //thirdRow.hide();
+			// showRow(firstRow); //firstRow.show();
+		}
+
+		var hideRow = function(input){
+			var Input = input;
+			$(Input).show();
+		};
+		var showRow = function(input){
+			var Input = input;
+			$(Input).hide();
+			
+		}
+
+		var someFunction = function(e){
+			var E = e;
+	        if (isValid) {
+				openRow(e);
+        	};
+        }
+        
+		// https://stackoverflow.com/posts/23607266/edit
+		// Create Event Listeners
+		$(document).on('click', firstRow , processEvent(firstRow ));
+
+
+
+
+
+
+
+
+
+
+
 		
+		$('.open-second').on('click', function(){
+			openSecond();
+		});
+		$('.open-third').on('click', function(){
+			openThird();
+		});
 
 		var openFirst = function(){
 			secondRow.hide();
