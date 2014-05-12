@@ -750,7 +750,8 @@
 		var processEvent = function(e){ // currently set to one
 			var E = e;  // Cache ID of calling object 
 			for (row in rowArray){
-				alert(row);
+				alert(rowArray[row]);
+				// alert(row); // WHAT THE FUCK IS THIS!
 				alert(E);
 				if (row = e){
 					showRow(e);
@@ -763,6 +764,7 @@
 			// hideRow(thirdRow); //thirdRow.hide();
 			// showRow(firstRow); //firstRow.show();
 		}
+		function testProcessEvent(){ processEvent(); }
 
 		var hideRow = function(input){
 			var Input = input;
