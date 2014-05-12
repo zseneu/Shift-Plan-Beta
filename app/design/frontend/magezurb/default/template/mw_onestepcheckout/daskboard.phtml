@@ -756,24 +756,33 @@
 		$('.second-row, .third-row').hide();
 
 		$(document).on('click', openFirst, function(){
-				$(handlersArray).removeClass('active');
-				$('.open-first').addClass('active'); 
+			    // Open First row and make active
+				$(openFirst).addClass('active'); 
 				showRow(firstRow);
+				// Hide other rows and deactivate
+				$(openSecond).removeClass('active');
 				hideRow(secondRow);
+				$(openThird).removeClass('active');
 				hideRow(thirdRow);
 		});
 		$(document).on('click', openSecond, function(){
-				$(handlersArray).removeClass('active');
-				$('.open-second').addClass('active');
+				// Open Second row and make active
+				$(openSecond).addClass('active');
 				showRow(secondRow);
+				// Hide other rows and deactivate
+				$(openFirst).removeClass('active');
 				hideRow(firstRow);
+				$(openThird).removeClass('active');
 				hideRow(thirdRow);
 		});
 		$(document).on('click', openThird, function(){
-				$(handlersArray).removeClass('active');
-				$('.open-third').addClass('active');
+				// Open Second row and make active
+				$(openThird).addClass('active');
 				showRow(thirdRow);
+				// Hide other rows and deactivate
+				$(openFirst).removeClass('active');
 				hideRow(firstRow);
+				$(openSecond).removeClass('active');
 				hideRow(secondRow);
 		});
 
