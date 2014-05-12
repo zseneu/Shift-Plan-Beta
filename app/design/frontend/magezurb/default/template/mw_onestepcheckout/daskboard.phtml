@@ -740,31 +740,25 @@
 		];
 		// alert(rowArray);
 
-		var isValid = function(){
-			return true;
-		} 
 
 		//Hide second and third rows
 		$('.second-row, .third-row').hide();
 
-		var processEvent = function(e){ // currently set to one
+		var processEvent = function(e, fooArray){ // currently set to one
 			var E = e;  // Cache ID of calling object 
+			var a = fooArray
 			for (row in rowArray){
-				alert(rowArray[row]);
-				// alert(row); // WHAT THE FUCK IS THIS!
+				// alert(rowArray[row]);
+				// alert(row); // WHAT THE FUCK IS THIS! // This comment reminds me to make some money
 				alert(E);
 				if (row = e){
 					showRow(e);
 				}
 				else {
-					hideRow(row);
+					hideRow(rowArray[row]);
 				}
 			}
-			// hideRow(secondRow); //secondRow.hide();
-			// hideRow(thirdRow); //thirdRow.hide();
-			// showRow(firstRow); //firstRow.show();
-		}
-		function testProcessEvent(){ processEvent(); }
+		} // function testProcessEvent(){ processEvent(); }
 
 		var hideRow = function(input){
 			var Input = input;
@@ -776,16 +770,33 @@
 			
 		}
 
-		var someFunction = function(e){
+		var isValid = function(){
+			return true;
+		} 
+		// a possibly uneseccary intermediatory function
+		var testValidity = function(e, fooArray){
 			var E = e;
 	        if (isValid) {
 				openRow(e);
         	};
         }
+        var 
+
+        // Assigns a document wide click event to the passed DOM object identifier
+        // As 
+        var setUpClickHandlers = function(inputArray){
+        	var inputArray = inputArray;
+        	for (item in inputArray){ 
+	        	var clickThis =  inputArray[item];
+				$(document).on('click', ClickThis , processEvent(ClickThis, inputArray) );
+			}
+			// $(document).on('click', firstRow , processEvent(firstRow, rowArray) );
+        } // 
+        setUpClickHandlers(); 
         
+
 		// https://stackoverflow.com/posts/23607266/edit
 		// Create Event Listeners
-		$(document).on('click', firstRow , processEvent(firstRow ));
 
 
 
