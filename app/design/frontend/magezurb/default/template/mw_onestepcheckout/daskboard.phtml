@@ -552,10 +552,10 @@
 						<a href="#" class="mw-bg-button active open-first">Address</a>
 					</div>
 					<div class="medium-4 columns">
-						<a href="#" class="open-first mw-bg-button open-second">Shipping and Payment</a>
+						<a href="#" class="mw-bg-button open-second">Shipping and Payment</a>
 					</div>
 					<div class="medium-4 columns">
-						<a href="#" class="open-first mw-bg-button open-third">Review</a>
+						<a href="#" class="mw-bg-button open-third">Review</a>
 					</div>
 				</div>
 			</div>
@@ -743,11 +743,11 @@
 
 		var hideRow = function(input){
 			var Input = input;
-			$(Input).show();
+			$(Input).hide();
 		};
 		var showRow = function(input){
 			var Input = input;
-			$(Input).hide();
+			$(Input).show();
 		}
 		// alert(handlersArray);
 
@@ -755,68 +755,27 @@
 		//Hide second and third rows
 		$('.second-row, .third-row').hide();
 
-		var processEvent = function(e, fooArray){ // currently set to one
-			var current = e;
-			alert(current);
-			if (current == openFirst){
-				alert('open first')
-				showRow(firstRow);
-				hideRow(secondRow);
-				hideRow(thirdRow);
-			}
-			if (current == openSecond){
-				// if first valid
-				alert('open second')
-				showRow(secondRow);
-				hideRow(firstRow);
-				hideRow(thirdRow);
-			}
-			if (current == openThird){
-				// if first valid
-				alert('open third')
-				showRow(thirdRow);
-				hideRow(firstRow);
-				hideRow(secondRow);
-			}
-			
-		} // function testProcessEvent(){ processEvent(); }
-
 		$(document).on('click', openFirst, function(){
-			showRow(firstRow);
+				$(handlersArray).removeClass('active');
+				$('.open-first').addClass('active'); 
+				showRow(firstRow);
 				hideRow(secondRow);
 				hideRow(thirdRow);
 		});
 		$(document).on('click', openSecond, function(){
-			showRow(secondRow);
+				$(handlersArray).removeClass('active');
+				$('.open-second').addClass('active');
+				showRow(secondRow);
 				hideRow(firstRow);
 				hideRow(thirdRow);
 		});
 		$(document).on('click', openThird, function(){
-			showRow(thirdRow);
+				$(handlersArray).removeClass('active');
+				$('.open-third').addClass('active');
+				showRow(thirdRow);
 				hideRow(firstRow);
 				hideRow(secondRow);
 		});
-		
-
-
-
-
-        //    _/
-        // Assigns a document wide click event to the passed DOM object identifier
-        // As 
-        var setUpClickHandlers = function(inputArray){
-        	var inputArray = inputArray;
-        	var arrayLength = inputArray.length;
-			for (var i = 0; i < arrayLength; i++) {
-	        	var clickThis =  inputArray[i];
-	        	// Add click handler to: clickThis and pass reference to callback function
-				$(document).on('click', clickThis , function(){
-					processEvent(clickThis, handlersArray);
-				});
-			}
-        }  
-   		// setUpClickHandlers(handlersArray); 
-        
 
 		// https://stackoverflow.com/posts/23607266/edit
 		// Create Event Listeners
