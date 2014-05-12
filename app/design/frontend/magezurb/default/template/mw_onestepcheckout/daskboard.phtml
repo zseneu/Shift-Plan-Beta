@@ -549,13 +549,13 @@
 			<div class="large-8 columns">
 				<div class="row mwbg-progress-bar">
 					<div class="medium-4 columns">
-						<a href="#" class="mw-bg-button active">Address</a>
+						<a href="#" class="mw-bg-button active open-first">Address</a>
 					</div>
 					<div class="medium-4 columns">
-						<a href="#" class="open-first mw-bg-button">Shipping and Payment</a>
+						<a href="#" class="open-first mw-bg-button open-second">Shipping and Payment</a>
 					</div>
 					<div class="medium-4 columns">
-						<a href="#" class="open-first mw-bg-button">Review</a>
+						<a href="#" class="open-first mw-bg-button open-third">Review</a>
 					</div>
 				</div>
 			</div>
@@ -731,12 +731,15 @@
 	**/
 	(function($) { 
 		// should this look like a regular object?
-		var firstRow = '.first-row';
-		var secondRow = '.second-row';
-		var thirdRow = '.third-row';
+		var openFirst  = '.open-first';
+		var openSecond = '.open-second';
+		var openThird  = '.open-third';
 
-		var rowArray = [firstRow, secondRow, thirdRow];
-		
+		var firstRow  = '.first-row';
+		var secondRow = '.second-row';
+		var thirdRow  = '.third-row'; 
+
+		var handlersArray = [openFirst, openSecond, openThird];	
 
 		var hideRow = function(input){
 			var Input = input;
@@ -746,35 +749,55 @@
 			var Input = input;
 			$(Input).hide();
 		}
-		// alert(rowArray);
+		// alert(handlersArray);
 
 
 		//Hide second and third rows
 		$('.second-row, .third-row').hide();
 
 		var processEvent = function(e, fooArray){ // currently set to one
-			var E = e;  // Cache ID of calling object 
-			var a = fooArray;
-			// alert(E);
-			// alert(a);
-			var arrayLength = a.length;
-			for (var i = 0; i < arrayLength; i++) {
-				foo = a[i];
-
-				alert(foo);
-				alert(E);
-				if (foo = E){
-					showRow(E);
-				}
-				else {
-					hideRow(foo);
-				}
+			var current = e;
+			alert(current);
+			if (current == openFirst){
+				alert('open first')
+				showRow(firstRow);
+				hideRow(secondRow);
+				hideRow(thirdRow);
 			}
+			if (current == openSecond){
+				// if first valid
+				alert('open second')
+				showRow(secondRow);
+				hideRow(firstRow);
+				hideRow(thirdRow);
+			}
+			if (current == openThird){
+				// if first valid
+				alert('open third')
+				showRow(thirdRow);
+				hideRow(firstRow);
+				hideRow(secondRow);
+			}
+			
 		} // function testProcessEvent(){ processEvent(); }
 
-		$(document).on('click', firstRow, function(){
-			processEvent(firstRow, rowArray);
+		$(document).on('click', openFirst, function(){
+			showRow(firstRow);
+				hideRow(secondRow);
+				hideRow(thirdRow);
 		});
+		$(document).on('click', openSecond, function(){
+			showRow(secondRow);
+				hideRow(firstRow);
+				hideRow(thirdRow);
+		});
+		$(document).on('click', openThird, function(){
+			showRow(thirdRow);
+				hideRow(firstRow);
+				hideRow(secondRow);
+		});
+		
+
 
 
 
@@ -788,11 +811,11 @@
 	        	var clickThis =  inputArray[i];
 	        	// Add click handler to: clickThis and pass reference to callback function
 				$(document).on('click', clickThis , function(){
-					processEvent(clickThis, rowArray);
+					processEvent(clickThis, handlersArray);
 				});
 			}
         }  
-   		//setUpClickHandlers(rowArray); 
+   		// setUpClickHandlers(handlersArray); 
         
 
 		// https://stackoverflow.com/posts/23607266/edit
