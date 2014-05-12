@@ -20,3 +20,38 @@ Seven Days Battles - Wikipedia, the free encyclopedia
 #5short days slides into movements
 #6add these to 
 #set up
+
+Not all the basket info is being displayed - e.g. the old basket displays the inside leg measurement - that’s missing.
+
+The delivery total isn’t displayed.
+
+The country doesn’t default to UK.
+
+I didn’t write "to remove a product from the cart set total to 0” - see original mock-up I sent.
+
+The already registered link doesn’t work.
+
+The checkout doesn’t look anything remotely like the design of the pixel works screen grab I sent - and doesn’t work as it should. For example there is a large space on the right hand side of the address page to allow for the delivery address fields to appear when you uncheck the “deliver to same address” check box. However, nothing happens when you do.
+
+The knock on effect of this is that you then can’t calculate the total price for the delivery and payment options on page two.
+
+Also the checkout is full of americanisms - cart - ship etc etc, and has fields in it that are not relevant - such as state, and fields that we don’t use - such as company.
+
+The create an account doesn’t then offer you the option to enter a password to create an account And this field should always be next to the e-mail address as that’s far easier for the customer to understand. Plus I don’t want this to be optional - I want them to have to create an account.
+
+the buttons in the checkout are not styled as per all my previous button instructions.
+
+On the second page - the delivery options thing doesn’t actually work - it just displays an error - and doesn’t need to be there anyway - the price in the header (see pixel workers screen grab) can update so that page 2 just carries the order summary across the top - allowing the whole page to be given over to payment details.
+
+the payment section is a mess - with a 50 character wide field to enter 3 digits. The expiry date month and year should be next to each other - not on separate lines. The CV2 help panel appears below the fold - and isn’t the UK one that I designed, etc etc etc. Go and look at the current payment page.
+
+On the review page - there is a checkbox for “accept terms" that we don’t currently have, and I don’t want.
+
+There is a comment section that I don’t want. The PLACE ORDER button needs to be across the top of the page (in the summary panel) with a big message saying “
+
+Why is it titled “ONE PAGE CHECKOUT PRO”  ?
+
+You’ve introduced some page titles that don’t look like anything else on the site - why not use the grey panels that I suggest ?
+
+
+
