@@ -735,28 +735,8 @@
 		var secondRow = '.second-row';
 		var thirdRow = '.third-row';
 
-		var rowArray = "firstRow, secondRow, thirdRow";
-		// alert(rowArray);
-
-
-		//Hide second and third rows
-		$('.second-row, .third-row').hide();
-
-		var processEvent = function(e, fooArray){ // currently set to one
-			var E = e;  // Cache ID of calling object 
-			var a = fooArray
-			for (row in rowArray){
-				// alert(rowArray[row]);
-				// alert(row); // WHAT THE FUCK IS THIS! // This comment reminds me to make some money
-				alert(row);
-				if (row = e){
-					showRow(e);
-				}
-				else {
-					hideRow(rowArray[row]);
-				}
-			}
-		} // function testProcessEvent(){ processEvent(); }
+		var rowArray = [firstRow, secondRow, thirdRow];
+		
 
 		var hideRow = function(input){
 			var Input = input;
@@ -765,36 +745,69 @@
 		var showRow = function(input){
 			var Input = input;
 			$(Input).hide();
-			
 		}
+		// alert(rowArray);
+
+
+		//Hide second and third rows
+		$('.second-row, .third-row').hide();
+
+		var processEvent = function(e, fooArray){ // currently set to one
+			var E = e;  // Cache ID of calling object 
+			var a = fooArray;
+			// alert(E);
+			// alert(a);
+			var arrayLength = a.length;
+			for (var i = 0; i < arrayLength; i++) {
+				foo = a[i];
+
+				alert(foo);
+				alert(E);
+				if (foo = E){
+					showRow(E);
+				}
+				else {
+					hideRow(foo);
+				}
+			}
+		} // function testProcessEvent(){ processEvent(); }
+
+		$(document).on('click', firstRow, function(){
+			processEvent(firstRow, rowArray);
+		});
+
+
 
         //    _/
         // Assigns a document wide click event to the passed DOM object identifier
         // As 
         var setUpClickHandlers = function(inputArray){
         	var inputArray = inputArray;
-        	for (item in inputArray){ 
-	        	var clickThis =  inputArray[item];
-				$(document).on('click', clickThis , processEvent(clickThis, inputArray) );
+        	var arrayLength = inputArray.length;
+			for (var i = 0; i < arrayLength; i++) {
+	        	var clickThis =  inputArray[i];
+	        	// Add click handler to: clickThis and pass reference to callback function
+				$(document).on('click', clickThis , function(){
+					processEvent(clickThis, rowArray);
+				});
 			}
-			// $(document).on('click', firstRow , processEvent(firstRow, rowArray) );
-        } // 
-        setUpClickHandlers(rowArray); 
+        }  
+   		//setUpClickHandlers(rowArray); 
         
 
 		// https://stackoverflow.com/posts/23607266/edit
 		// Create Event Listeners
 
 
-		var isValid = function(){
-			return true;
-		} 
-		// a possibly uneseccary intermediatory function
-		var testValidity = function(e, fooArray){
-			var E = e;
-	        if (isValid) {
-				openRow(e);
-        	};
-        }
+		// var isValid = function(){
+		// 	return true;
+		// } 
+		// // a possibly uneseccary intermediatory function
+		// var testValidity = function(e, fooArray){
+		// 	var E = e;
+	 //        if (isValid) {
+		// 		openRow(e);
+  //       	};
+  //       }
 	})(jQuery);
 	</script>
